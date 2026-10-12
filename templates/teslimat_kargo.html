@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Teslimat ve Kargo Bilgileri | nevartrend{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
+  <nav class="flex text-xs text-slate-500 gap-2 items-center">
+    <a href="/" class="hover:text-emerald-700">Ana Sayfa</a>
+    <span>/</span>
+    <span class="font-bold text-slate-800">Teslimat & Kargo Bilgileri</span>
+  </nav>
+
+  <h1 class="font-serif-title text-3xl font-extrabold text-slate-900">
+    Teslimat ve Kargo Bilgileri
+  </h1>
+
+  <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6 text-xs sm:text-sm text-slate-600 leading-relaxed">
+    <h2 class="text-base font-bold text-slate-900">1. Üretim ve Hazırlık Süresi</h2>
+    <p>
+      Dijital kumaş baskı siparişleriniz ve emprime film çıktılarınız, sipariş onayından itibaren <strong>24 ila 48 iş saati</strong> içerisinde basılır, fikse edilir ve kalite kontrolden geçirilerek kargoya hazır hale getirilir.
+    </p>
+
+    <h2 class="text-base font-bold text-slate-900">2. Kargo Ücretleri ve Ücretsiz Kargo</h2>
+    <p>
+      <strong>1.000 TL ve üzeri</strong> tüm siparişlerde Türkiye'nin her yerine kargo <strong>ücretsizdir</strong>. 1.000 TL altındaki siparişlerde standart anlaşmalı kargo bedeli sepet adımında şeffaf olarak belirtilir.
+    </p>
+
+    <h2 class="text-base font-bold text-slate-900">3. Kargo Takibi ve Teslimat</h2>
+    <p>
+      Siparişiniz kargoya verildiğinde SMS ve e-posta yoluyla kargo takip numarası iletilir. Anlaşmalı kargo firmalarımızla Türkiye genelinde teslimatlar 1-3 iş günü içerisinde gerçekleştirilmektedir.
+    </p>
+  </div>
+</div>
+{% endblock %}

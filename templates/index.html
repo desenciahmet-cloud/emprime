@@ -1,0 +1,704 @@
+{% extends "base.html" %}
+
+{% block title %}Emprime Desen, Renk Ayrımı & Film Çıktısı | Trenddesen / Nevartrend{% endblock %}
+
+{% block content %}
+<!-- EMPRIME HERO SECTION -->
+<section class="bg-gradient-to-b from-slate-900 via-slate-900 to-slate-800 text-white py-12 border-b border-slate-800 relative overflow-hidden">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(16,185,129,0.15),rgba(255,255,255,0))]"></div>
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+      <div class="max-w-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold">
+          <i data-lucide="layers" class="w-4 h-4"></i>
+          <span>PROFESYONEL EMPRİME & SERİGRAFİ ÇÖZÜMLERİ</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white font-serif-title">
+          Emprime Desen, Renk Ayrımı & Film Çıktısı Stüdyosu
+        </h1>
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+          Hazır giyime yönelik parça baskı tasarımları, çok renkli veya tek renk kanal ayrımı, pozlamaya hazır serigrafi film çıktısı ve baskı tekniğine (Su bazlı, Plastik, Aşındırma, Varak, Flok) özel profesyonel kalıp hazırlığı.
+        </p>
+        
+        <div class="flex flex-wrap gap-3 pt-2">
+          <a href="#custom-upload-wizard" class="px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition flex items-center gap-2 shadow-lg shadow-emerald-900/30">
+            <i data-lucide="upload-cloud" class="w-4 h-4"></i>
+            <span>Kendi Desenini Yükle (Renk Ayrımı İste)</span>
+          </a>
+          <a href="#emprime-catalog" class="px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-bold transition flex items-center gap-2">
+            <i data-lucide="palette" class="w-4 h-4"></i>
+            <span>Hazır Emprime Koleksiyonu</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Feature Pill Badges -->
+      <div class="grid grid-cols-2 gap-3 w-full md:w-auto">
+        <div class="p-4 bg-slate-800/80 backdrop-blur border border-slate-700/60 rounded-2xl space-y-1">
+          <div class="text-emerald-400 font-extrabold text-lg flex items-center gap-1.5">
+            <i data-lucide="split" class="w-5 h-5"></i> Kanal Ayrımı
+          </div>
+          <p class="text-[11px] text-slate-400">Tek renk, Çok renkli & CMYK simüle proses.</p>
+        </div>
+        <div class="p-4 bg-slate-800/80 backdrop-blur border border-slate-700/60 rounded-2xl space-y-1">
+          <div class="text-amber-400 font-extrabold text-lg flex items-center gap-1.5">
+            <i data-lucide="film" class="w-5 h-5"></i> Film Çıktısı
+          </div>
+          <p class="text-[11px] text-slate-400">A4, A3, A2 ebatlarında yüksek densiteli asetat film.</p>
+        </div>
+        <div class="p-4 bg-slate-800/80 backdrop-blur border border-slate-700/60 rounded-2xl space-y-1">
+          <div class="text-cyan-400 font-extrabold text-lg flex items-center gap-1.5">
+            <i data-lucide="droplet" class="w-5 h-5"></i> Baskı Teknikleri
+          </div>
+          <p class="text-[11px] text-slate-400">Aşındırma, Plastisol, Su bazlı, Varak & Flok.</p>
+        </div>
+        <div class="p-4 bg-slate-800/80 backdrop-blur border border-slate-700/60 rounded-2xl space-y-1">
+          <div class="text-rose-400 font-extrabold text-lg flex items-center gap-1.5">
+            <i data-lucide="shield-check" class="w-5 h-5"></i> Filigran Koruması
+          </div>
+          <p class="text-[11px] text-slate-400">Özgün telifli hazır giyim grafik koleksiyonu.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- SECTION 1: INTERACTIVE EMPRIME GALLERY & COLOR CHANGER (MANKEN ÜZERİNDE VE FİLİGRANLI DESEN) -->
+<section id="emprime-catalog" class="py-12 bg-white border-b border-slate-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+    
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+      <div>
+        <span class="text-xs font-bold text-emerald-800 uppercase tracking-wider flex items-center gap-1">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-emerald-600"></i>
+          ÖZGÜN HAZIR GİYİM SERİSİ
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1 font-serif-title">
+          Özel Emprime Desen Koleksiyonu
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">
+          Hazır giyime yönelik özgün emprime tasarımlarımızı ve model üzerindeki siyah/beyaz/renkli kumaş uygulamalarını keşfedin.
+        </p>
+      </div>
+
+      <!-- Quick Filter -->
+      <div class="flex items-center gap-2">
+        <span class="text-xs font-bold text-slate-600">Teknik Filtresi:</span>
+        <span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">Tümü (Aşındırma / Plastik / Su Bazlı)</span>
+      </div>
+    </div>
+
+    <!-- 4 EMPRIME MASTER SHOWCASES -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- ITEM 1: Floral Barok Göğüs Paneli -->
+      <div class="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+        <div>
+          <!-- Model Live Image (Interactive Black / White / Color Switcher) -->
+          <div class="relative aspect-[4/5] bg-slate-900 overflow-hidden">
+            <img id="emp-model-img-1" src="/static/images/emprime/emp_model_floral_black.jpg" alt="Floral Emprime Model" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-2 left-2 px-2 py-1 rounded-md text-[10px] font-bold bg-slate-900/80 text-white backdrop-blur-sm">
+              EMP-001
+            </span>
+            <span class="absolute top-2 right-2 px-2 py-1 rounded-md text-[10px] font-bold bg-emerald-600 text-white shadow-sm">
+              3 Renk Emprime
+            </span>
+
+            <!-- T-shirt Color Switcher Buttons -->
+            <div class="absolute bottom-2 left-2 right-2 p-1.5 bg-slate-900/80 backdrop-blur-md rounded-xl flex items-center justify-between text-[10px] text-white">
+              <span class="font-bold ml-1">Kumaş:</span>
+              <div class="flex items-center gap-1.5">
+                <button type="button" onclick="switchEmpModel(1, 'black')" title="Siyah Tişört" class="w-5 h-5 rounded-full bg-black border-2 border-white/80 hover:scale-110 transition"></button>
+                <button type="button" onclick="switchEmpModel(1, 'white')" title="Beyaz Tişört" class="w-5 h-5 rounded-full bg-white border-2 border-slate-400 hover:scale-110 transition"></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Watermarked Pattern Preview Card -->
+          <div class="p-4 space-y-3">
+            <div class="flex items-start justify-between gap-2">
+              <div>
+                <h3 class="text-sm font-extrabold text-slate-900">Altın & Kiremit Floral Panel</h3>
+                <p class="text-[11px] text-slate-500 mt-0.5">Sarı, Hardal, Kiremit Şablonu</p>
+              </div>
+              <span class="text-xs font-extrabold text-emerald-700 bg-emerald-50 px-2 py-1 rounded-md border border-emerald-200 whitespace-nowrap">
+                3 Renk
+              </span>
+            </div>
+
+            <!-- Filigranlı Desen Küçük Görseli -->
+            <div class="relative aspect-square bg-slate-100 rounded-xl overflow-hidden border border-slate-200">
+              <img src="/static/images/emprime/emp_pat_floral_wm.jpg" alt="Filigranlı Desen" class="w-full h-full object-contain p-2">
+              <span class="absolute bottom-1 right-1 px-1.5 py-0.5 bg-slate-900/80 text-white text-[9px] font-bold rounded">
+                Filigran Korumalı
+              </span>
+            </div>
+
+            <!-- Tech Specs -->
+            <div class="space-y-1 text-[11px] text-slate-600 border-t border-slate-200/80 pt-2">
+              <div class="flex justify-between">
+                <span>Önerilen Baskı:</span>
+                <strong class="text-slate-900">Aşındırma / Su Bazlı</strong>
+              </div>
+              <div class="flex justify-between">
+                <span>Film Ebadı:</span>
+                <strong class="text-slate-900">A3 (30x42 cm)</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Order Button -->
+        <div class="p-4 pt-0">
+          <button type="button" onclick="openEmpOrderModal('EMP-001', 'Altın & Kiremit Floral Panel', 3, 'Aşındırma / Su Bazlı')" class="w-full py-2.5 px-3 bg-slate-900 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl transition flex items-center justify-center gap-1.5 shadow-sm">
+            <i data-lucide="layers" class="w-3.5 h-3.5 text-emerald-400"></i>
+            <span>Renk Ayrımı & Film İste</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ITEM 2: Tropik Mercan Balığı & Okyanus -->
+      <div class="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+        <div>
+          <!-- Model Image -->
+          <div class="relative aspect-[4/5] bg-slate-900 overflow-hidden">
+            <img src="/static/images/emprime/emp_model_ocean_black.jpg" alt="Ocean Emprime Model" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-2 left-2 px-2 py-1 rounded-md text-[10px] font-bold bg-slate-900/80 text-white backdrop-blur-sm">
+              EMP-002
+            </span>
+            <span class="absolute top-2 right-2 px-2 py-1 rounded-md text-[10px] font-bold bg-cyan-600 text-white shadow-sm">
+              5 Renk Emprime
+            </span>
+          </div>
+
+          <!-- Details & Watermarked Pattern -->
+          <div class="p-4 space-y-3">
+            <div class="flex items-start justify-between gap-2">
+              <div>
+                <h3 class="text-sm font-extrabold text-slate-900">Tropik Mercan & Balıklar</h3>
+                <p class="text-[11px] text-slate-500 mt-0.5">Canlı Pembe, Mavi, Turuncu, Beyaz</p>
+              </div>
+              <span class="text-xs font-extrabold text-cyan-800 bg-cyan-50 px-2 py-1 rounded-md border border-cyan-200 whitespace-nowrap">
+                5 Renk
+              </span>
+            </div>
+
+            <div class="relative aspect-square bg-slate-100 rounded-xl overflow-hidden border border-slate-200">
+              <img src="/static/images/emprime/emp_pat_ocean_wm.jpg" alt="Filigranlı Okyanus" class="w-full h-full object-contain p-2">
+              <span class="absolute bottom-1 right-1 px-1.5 py-0.5 bg-slate-900/80 text-white text-[9px] font-bold rounded">
+                Filigran Korumalı
+              </span>
+            </div>
+
+            <div class="space-y-1 text-[11px] text-slate-600 border-t border-slate-200/80 pt-2">
+              <div class="flex justify-between">
+                <span>Önerilen Baskı:</span>
+                <strong class="text-slate-900">Plastisol / Yüksek Örtücülük</strong>
+              </div>
+              <div class="flex justify-between">
+                <span>Film Ebadı:</span>
+                <strong class="text-slate-900">A3+ (33x48 cm)</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-4 pt-0">
+          <button type="button" onclick="openEmpOrderModal('EMP-002', 'Tropik Mercan & Balıklar', 5, 'Plastisol / Yüksek Örtücülük')" class="w-full py-2.5 px-3 bg-slate-900 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl transition flex items-center justify-center gap-1.5 shadow-sm">
+            <i data-lucide="layers" class="w-3.5 h-3.5 text-emerald-400"></i>
+            <span>Renk Ayrımı & Film İste</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ITEM 3: Etnik Geometrik Lale & Nar -->
+      <div class="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+        <div>
+          <!-- Model Image -->
+          <div class="relative aspect-[4/5] bg-slate-900 overflow-hidden">
+            <img src="/static/images/emprime/emp_model_ethnic_brown.jpg" alt="Ethnic Model" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-2 left-2 px-2 py-1 rounded-md text-[10px] font-bold bg-slate-900/80 text-white backdrop-blur-sm">
+              EMP-003
+            </span>
+            <span class="absolute top-2 right-2 px-2 py-1 rounded-md text-[10px] font-bold bg-amber-600 text-white shadow-sm">
+              4 Renk Emprime
+            </span>
+          </div>
+
+          <div class="p-4 space-y-3">
+            <div class="flex items-start justify-between gap-2">
+              <div>
+                <h3 class="text-sm font-extrabold text-slate-900">Etnik Geometrik Lale & Nar</h3>
+                <p class="text-[11px] text-slate-500 mt-0.5">Zümrüt, Hardal, Pudra, Kiremit</p>
+              </div>
+              <span class="text-xs font-extrabold text-amber-800 bg-amber-50 px-2 py-1 rounded-md border border-amber-200 whitespace-nowrap">
+                4 Renk
+              </span>
+            </div>
+
+            <div class="relative aspect-square bg-slate-100 rounded-xl overflow-hidden border border-slate-200">
+              <img src="/static/images/emprime/emp_pat_ethnic_wm.jpg" alt="Filigranlı Etnik" class="w-full h-full object-contain p-2">
+              <span class="absolute bottom-1 right-1 px-1.5 py-0.5 bg-slate-900/80 text-white text-[9px] font-bold rounded">
+                Filigran Korumalı
+              </span>
+            </div>
+
+            <div class="space-y-1 text-[11px] text-slate-600 border-t border-slate-200/80 pt-2">
+              <div class="flex justify-between">
+                <span>Önerilen Baskı:</span>
+                <strong class="text-slate-900">Aşındırma / Su Bazlı Ekolojik</strong>
+              </div>
+              <div class="flex justify-between">
+                <span>Film Ebadı:</span>
+                <strong class="text-slate-900">A3 (30x42 cm)</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-4 pt-0">
+          <button type="button" onclick="openEmpOrderModal('EMP-003', 'Etnik Geometrik Lale & Nar', 4, 'Aşındırma / Su Bazlı Ekolojik')" class="w-full py-2.5 px-3 bg-slate-900 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl transition flex items-center justify-center gap-1.5 shadow-sm">
+            <i data-lucide="layers" class="w-3.5 h-3.5 text-emerald-400"></i>
+            <span>Renk Ayrımı & Film İste</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ITEM 4: Botanik Manolya & Tomurcuk -->
+      <div class="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+        <div>
+          <!-- Model Image -->
+          <div class="relative aspect-[4/5] bg-slate-900 overflow-hidden">
+            <img src="/static/images/emprime/emp_model_magnolia_black.jpg" alt="Magnolia Model" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-2 left-2 px-2 py-1 rounded-md text-[10px] font-bold bg-slate-900/80 text-white backdrop-blur-sm">
+              EMP-004
+            </span>
+            <span class="absolute top-2 right-2 px-2 py-1 rounded-md text-[10px] font-bold bg-rose-600 text-white shadow-sm">
+              3 Renk Emprime
+            </span>
+          </div>
+
+          <div class="p-4 space-y-3">
+            <div class="flex items-start justify-between gap-2">
+              <div>
+                <h3 class="text-sm font-extrabold text-slate-900">Botanik Manolya & Tomurcuk</h3>
+                <p class="text-[11px] text-slate-500 mt-0.5">Krem, Bordo, Haki Yeşil</p>
+              </div>
+              <span class="text-xs font-extrabold text-rose-800 bg-rose-50 px-2 py-1 rounded-md border border-rose-200 whitespace-nowrap">
+                3 Renk
+              </span>
+            </div>
+
+            <div class="relative aspect-square bg-slate-100 rounded-xl overflow-hidden border border-slate-200">
+              <img src="/static/images/emprime/emp_pat_magnolia_wm.jpg" alt="Filigranlı Manolya" class="w-full h-full object-contain p-2">
+              <span class="absolute bottom-1 right-1 px-1.5 py-0.5 bg-slate-900/80 text-white text-[9px] font-bold rounded">
+                Filigran Korumalı
+              </span>
+            </div>
+
+            <div class="space-y-1 text-[11px] text-slate-600 border-t border-slate-200/80 pt-2">
+              <div class="flex justify-between">
+                <span>Önerilen Baskı:</span>
+                <strong class="text-slate-900">Aşındırma + Flok / Varak</strong>
+              </div>
+              <div class="flex justify-between">
+                <span>Film Ebadı:</span>
+                <strong class="text-slate-900">A3 (30x42 cm)</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-4 pt-0">
+          <button type="button" onclick="openEmpOrderModal('EMP-004', 'Botanik Manolya & Tomurcuk', 3, 'Aşındırma + Flok / Varak')" class="w-full py-2.5 px-3 bg-slate-900 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl transition flex items-center justify-center gap-1.5 shadow-sm">
+            <i data-lucide="layers" class="w-3.5 h-3.5 text-emerald-400"></i>
+            <span>Renk Ayrımı & Film İste</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- SECTION 2: MÜŞTERİ KENDİ DONESİNİ YÜKLEME & RENK AYRIMI SİHİRBAZI -->
+<section id="custom-upload-wizard" class="py-14 bg-slate-50 border-b border-slate-200">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+    
+    <div class="text-center max-w-2xl mx-auto space-y-2">
+      <span class="px-3 py-1 rounded-full text-xs font-extrabold bg-emerald-100 text-emerald-800 border border-emerald-300 inline-flex items-center gap-1.5">
+        <i data-lucide="sliders" class="w-3.5 h-3.5"></i> ÖZEL SİPARİŞ HESAPLAYICI
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 font-serif-title">
+        Kendi Doneni Yükle: Renk Ayrımı ve Film Çıktısı
+      </h2>
+      <p class="text-xs sm:text-sm text-slate-500">
+        Elinizdeki çizim, fotoğraf veya grafik dosyasını yükleyin; istediğiniz renk adedine ve baskı tekniğine göre renk ayrımını ve pozlama filmini hazırlayalım.
+      </p>
+    </div>
+
+    <div class="bg-white rounded-3xl border border-slate-200 shadow-xl p-6 sm:p-8 space-y-8">
+      
+      <!-- STEP 1: Dosya Yükleme Alanı -->
+      <div class="space-y-3">
+        <label class="block text-xs font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+          <span class="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs">1</span>
+          <span>Baskı Yapılacak Done / Desen Dosyasını Seçin:</span>
+        </label>
+        
+        <div class="border-2 border-dashed border-slate-300 hover:border-emerald-500 bg-slate-50 hover:bg-emerald-50/30 rounded-2xl p-6 text-center cursor-pointer transition relative group">
+          <input type="file" id="clientDoneFile" accept="image/*,.pdf,.psd,.ai,.eps,.tif,.tiff" class="absolute inset-0 opacity-0 cursor-pointer w-full h-full z-10" onchange="handleDoneFileSelect(event)">
+          <div class="space-y-2 pointer-events-none">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform">
+              <i data-lucide="upload-cloud" class="w-6 h-6"></i>
+            </div>
+            <div class="text-sm font-bold text-slate-800" id="doneFileName">Görselinizi sürükleyin veya dosya seçmek için tıklayın</div>
+            <p class="text-[11px] text-slate-400">Desteklenen: JPG, PNG, PDF, PSD (Katmanlı), AI, TIFF (Maks: 100 MB)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2: Renk Sayısı & Kanal Seçimi -->
+      <div class="space-y-3">
+        <label class="block text-xs font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+          <span class="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs">2</span>
+          <span>Kaç Renk Ayrımı Yapılacak?</span>
+        </label>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <label class="cursor-pointer border-2 border-slate-200 hover:border-emerald-500 rounded-xl p-3.5 flex flex-col items-center gap-1.5 transition text-center bg-white has-[:checked]:border-emerald-600 has-[:checked]:bg-emerald-50/50 has-[:checked]:shadow-sm">
+            <input type="radio" name="colorCount" value="1" class="hidden" checked onchange="calcEmpPrice()">
+            <span class="font-extrabold text-sm text-slate-900">Tek Renk</span>
+            <span class="text-[10px] text-slate-500 font-medium">Siyah/Beyaz veya Tek Renk İpek</span>
+          </label>
+
+          <label class="cursor-pointer border-2 border-slate-200 hover:border-emerald-500 rounded-xl p-3.5 flex flex-col items-center gap-1.5 transition text-center bg-white has-[:checked]:border-emerald-600 has-[:checked]:bg-emerald-50/50 has-[:checked]:shadow-sm">
+            <input type="radio" name="colorCount" value="2-3" class="hidden" onchange="calcEmpPrice()">
+            <span class="font-extrabold text-sm text-slate-900">2 - 3 Renk</span>
+            <span class="text-[10px] text-slate-500 font-medium">Lokal Spot Renk Ayrımı</span>
+          </label>
+
+          <label class="cursor-pointer border-2 border-slate-200 hover:border-emerald-500 rounded-xl p-3.5 flex flex-col items-center gap-1.5 transition text-center bg-white has-[:checked]:border-emerald-600 has-[:checked]:bg-emerald-50/50 has-[:checked]:shadow-sm">
+            <input type="radio" name="colorCount" value="4-6" class="hidden" onchange="calcEmpPrice()">
+            <span class="font-extrabold text-sm text-slate-900">4 - 6 Renk</span>
+            <span class="text-[10px] text-slate-500 font-medium">Çok Renkli & Degrade Tram</span>
+          </label>
+
+          <label class="cursor-pointer border-2 border-slate-200 hover:border-emerald-500 rounded-xl p-3.5 flex flex-col items-center gap-1.5 transition text-center bg-white has-[:checked]:border-emerald-600 has-[:checked]:bg-emerald-50/50 has-[:checked]:shadow-sm">
+            <input type="radio" name="colorCount" value="cmyk" class="hidden" onchange="calcEmpPrice()">
+            <span class="font-extrabold text-sm text-slate-900">CMYK / Simüle</span>
+            <span class="text-[10px] text-slate-500 font-medium">Fotoğrafik Simüle Proses</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- STEP 3: Baskı Tekniği Seçimi -->
+      <div class="space-y-3">
+        <label class="block text-xs font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+          <span class="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs">3</span>
+          <span>Hangi Baskı Tekniği İçin Kalıp Hazırlanacak?</span>
+        </label>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <label class="cursor-pointer border-2 border-slate-200 hover:border-emerald-500 rounded-xl p-3 flex items-start gap-2.5 bg-white has-[:checked]:border-emerald-600 has-[:checked]:bg-emerald-50/50 transition">
+            <input type="checkbox" name="techOption" value="asindirma" checked onchange="calcEmpPrice()" class="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500">
+            <div>
+              <h4 class="font-bold text-xs text-slate-900">Aşındırma (Discharge)</h4>
+              <p class="text-[10px] text-slate-500">Koyu zeminlerde tuşesiz, nefes alan baskı</p>
+            </div>
+          </label>
+
+          <label class="cursor-pointer border-2 border-slate-200 hover:border-emerald-500 rounded-xl p-3 flex items-start gap-2.5 bg-white has-[:checked]:border-emerald-600 has-[:checked]:bg-emerald-50/50 transition">
+            <input type="checkbox" name="techOption" value="subazli" onchange="calcEmpPrice()" class="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500">
+            <div>
+              <h4 class="font-bold text-xs text-slate-900">Su Bazlı (Pigment)</h4>
+              <p class="text-[10px] text-slate-500">Açık zemin kumaşlar için ekolojik yumuşak baskı</p>
+            </div>
+          </label>
+
+          <label class="cursor-pointer border-2 border-slate-200 hover:border-emerald-500 rounded-xl p-3 flex items-start gap-2.5 bg-white has-[:checked]:border-emerald-600 has-[:checked]:bg-emerald-50/50 transition">
+            <input type="checkbox" name="techOption" value="plastisol" onchange="calcEmpPrice()" class="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500">
+            <div>
+              <h4 class="font-bold text-xs text-slate-900">Plastik (Plastisol)</h4>
+              <p class="text-[10px] text-slate-500">Yüksek örtücülük, canlı ve dayanıklı renkler</p>
+            </div>
+          </label>
+
+          <label class="cursor-pointer border-2 border-slate-200 hover:border-emerald-500 rounded-xl p-3 flex items-start gap-2.5 bg-white has-[:checked]:border-emerald-600 has-[:checked]:bg-emerald-50/50 transition">
+            <input type="checkbox" name="techOption" value="varak" onchange="calcEmpPrice()" class="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500">
+            <div>
+              <h4 class="font-bold text-xs text-slate-900">Varak & Yaldız</h4>
+              <p class="text-[10px] text-slate-500">Altın, gümüş, bronz parlak folyo tutkal kalıbı</p>
+            </div>
+          </label>
+
+          <label class="cursor-pointer border-2 border-slate-200 hover:border-emerald-500 rounded-xl p-3 flex items-start gap-2.5 bg-white has-[:checked]:border-emerald-600 has-[:checked]:bg-emerald-50/50 transition">
+            <input type="checkbox" name="techOption" value="flok" onchange="calcEmpPrice()" class="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500">
+            <div>
+              <h4 class="font-bold text-xs text-slate-900">Flok & Kabartma</h4>
+              <p class="text-[10px] text-slate-500">Kadife tuşeli flok tozu ve 3D kabartma kalıbı</p>
+            </div>
+          </label>
+
+          <label class="cursor-pointer border-2 border-slate-200 hover:border-emerald-500 rounded-xl p-3 flex items-start gap-2.5 bg-white has-[:checked]:border-emerald-600 has-[:checked]:bg-emerald-50/50 transition">
+            <input type="checkbox" name="techOption" value="sim" onchange="calcEmpPrice()" class="mt-0.5 rounded text-emerald-600 focus:ring-emerald-500">
+            <div>
+              <h4 class="font-bold text-xs text-slate-900">Sim / Glitter / Reflektör</h4>
+              <p class="text-[10px] text-slate-500">Özel efektli pırıltılı veya ışık yansıtan baskı</p>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- STEP 4: Hizmet & Teslimat Türü -->
+      <div class="space-y-3">
+        <label class="block text-xs font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+          <span class="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs">4</span>
+          <span>Nasıl Teslim Almak İstiyorsunuz?</span>
+        </label>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <label class="cursor-pointer border-2 border-slate-200 hover:border-emerald-500 rounded-2xl p-4 flex items-start gap-3 bg-white has-[:checked]:border-emerald-600 has-[:checked]:bg-emerald-50/40 has-[:checked]:shadow-md transition">
+            <input type="radio" name="deliverType" value="digital" checked onchange="calcEmpPrice()" class="mt-1 text-emerald-600 focus:ring-emerald-500">
+            <div>
+              <div class="flex items-center gap-2">
+                <i data-lucide="file-code" class="w-4 h-4 text-emerald-600"></i>
+                <h4 class="font-extrabold text-sm text-slate-900">Dijital Renk Ayrımı Dosyası (E-Posta / İndirme)</h4>
+              </div>
+              <p class="text-xs text-slate-500 mt-1">
+                Kanal ayrımı yapılmış, tram açıları ve nokta kazancı ayarlanmış yüksek çözünürlüklü Photoshop PSD / TIFF dosyası.
+              </p>
+              <span class="inline-block mt-2 font-bold text-xs text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">Hızlı Teslimat (Aynı Gün)</span>
+            </div>
+          </label>
+
+          <label class="cursor-pointer border-2 border-slate-200 hover:border-emerald-500 rounded-2xl p-4 flex items-start gap-3 bg-white has-[:checked]:border-emerald-600 has-[:checked]:bg-emerald-50/40 has-[:checked]:shadow-md transition">
+            <input type="radio" name="deliverType" value="film_cargo" onchange="calcEmpPrice()" class="mt-1 text-emerald-600 focus:ring-emerald-500">
+            <div>
+              <div class="flex items-center gap-2">
+                <i data-lucide="truck" class="w-4 h-4 text-amber-600"></i>
+                <h4 class="font-extrabold text-sm text-slate-900">Pozlamaya Hazır Film Çıktısı (Kargo İle Adresinize)</h4>
+              </div>
+              <p class="text-xs text-slate-500 mt-1">
+                Özel serigrafi plotter cihazında yüksek siyahlık (DMAX) ve optik yoğunlukta basılmış asetat film seti.
+              </p>
+              <span class="inline-block mt-2 font-bold text-xs text-amber-800 bg-amber-100 px-2 py-0.5 rounded">Korumalı Rulo Ambalajında Kargo</span>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- PRICE CALCULATION & SUBMIT -->
+      <div class="bg-slate-900 text-white rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
+        <div class="space-y-1 text-center sm:text-left">
+          <span class="text-xs text-slate-400">Hesaplanan Hizmet Bedeli:</span>
+          <div class="flex items-baseline gap-2 justify-center sm:justify-start">
+            <span id="calculatedEmpPrice" class="text-3xl font-extrabold text-white">450 TL</span>
+            <span class="text-xs text-emerald-400 font-semibold">(KDV Dahil)</span>
+          </div>
+          <p class="text-[11px] text-slate-400" id="empPriceBreakdown">Tek Renk Dijital Renk Ayrımı</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
+          <button type="button" onclick="submitCustomDoneOrder()" class="w-full sm:w-auto px-6 py-3.5 rounded-xl text-sm font-extrabold text-white bg-emerald-600 hover:bg-emerald-500 transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-900/50">
+            <i data-lucide="check-circle" class="w-4 h-4"></i>
+            <span>Siparişi Başlat & Sepete Ekle</span>
+          </button>
+          <a id="empWhatsappBtn" href="https://wa.me/908503000000" target="_blank" class="w-full sm:w-auto px-4 py-3.5 rounded-xl text-xs font-bold text-slate-200 bg-slate-800 hover:bg-slate-700 border border-slate-700 transition flex items-center justify-center gap-2">
+            <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
+            <span>WhatsApp Destek</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- SİPARİŞ / TEKLİF MODAL -->
+<div id="empOrderModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+  <div class="bg-white rounded-3xl max-w-lg w-full p-6 space-y-5 shadow-2xl border border-slate-200 relative animate-in fade-in zoom-in-95 duration-200">
+    <button onclick="closeEmpOrderModal()" class="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-700 rounded-xl hover:bg-slate-100 transition">
+      <i data-lucide="x" class="w-5 h-5"></i>
+    </button>
+
+    <div class="space-y-1">
+      <span class="text-[10px] font-extrabold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-md uppercase tracking-wider">
+        EMPRİME SİPARİŞ TALEBİ
+      </span>
+      <h3 class="text-lg font-extrabold text-slate-900" id="modalEmpTitle">Desen Adı</h3>
+      <p class="text-xs text-slate-500" id="modalEmpCode">Kod: EMP-001</p>
+    </div>
+
+    <div class="space-y-3 bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs">
+      <div class="flex justify-between">
+        <span class="text-slate-500">Renk Sayısı:</span>
+        <strong id="modalEmpColors" class="text-slate-900">3 Renk</strong>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-slate-500">Baskı Türü:</span>
+        <strong id="modalEmpTech" class="text-slate-900">Aşındırma</strong>
+      </div>
+      <div class="flex justify-between border-t border-slate-200 pt-2">
+        <span class="text-slate-500">Hizmet Seçeneği:</span>
+        <select id="modalServiceType" onchange="updateModalPrice()" class="bg-white border border-slate-300 rounded-lg px-2 py-1 font-bold text-slate-800">
+          <option value="digital">Dijital Renk Ayrımı Dosyası (500 TL)</option>
+          <option value="film">Renk Ayrımı + Asetat Film Çıktısı (850 TL)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="space-y-2">
+      <label class="block text-xs font-bold text-slate-700">İletişim Numaranız / Notunuz:</label>
+      <input type="text" id="modalClientPhone" placeholder="05XX XXX XX XX" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2 text-xs font-semibold text-slate-800">
+    </div>
+
+    <div class="flex items-center gap-3 pt-2">
+      <button type="button" onclick="confirmEmpCatalogOrder()" class="flex-1 py-3 px-4 rounded-xl text-xs font-extrabold text-white bg-emerald-600 hover:bg-emerald-500 transition flex items-center justify-center gap-2 shadow-md">
+        <i data-lucide="check" class="w-4 h-4"></i>
+        <span>Siparişi Onayla</span>
+      </button>
+      <button type="button" onclick="sendEmpWhatsapp()" class="py-3 px-4 rounded-xl text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 transition flex items-center gap-1.5">
+        <i data-lucide="message-circle" class="w-4 h-4"></i>
+        <span>WhatsApp</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
+  calcEmpPrice();
+});
+
+// Switch T-shirt Color on Model
+function switchEmpModel(id, color) {
+  const imgEl = document.getElementById('emp-model-img-' + id);
+  if (!imgEl) return;
+  if (color === 'black') {
+    imgEl.src = '/static/images/emprime/emp_model_floral_black.jpg';
+  } else if (color === 'white') {
+    imgEl.src = '/static/images/emprime/emp_model_floral_white.jpg';
+  }
+}
+
+// Custom Upload File Handler
+let selectedDoneFileName = '';
+function handleDoneFileSelect(e) {
+  const file = e.target.files[0];
+  if (file) {
+    selectedDoneFileName = file.name;
+    document.getElementById('doneFileName').innerHTML = `
+      <span class="text-emerald-700 font-extrabold">✓ Seçildi:</span> ${file.name} 
+      <span class="text-slate-400 text-xs">(${(file.size / 1024 / 1024).toFixed(2)} MB)</span>
+    `;
+  }
+}
+
+// Calculate Price for Custom Done
+function calcEmpPrice() {
+  const colorVal = document.querySelector('input[name="colorCount"]:checked')?.value || '1';
+  const deliverVal = document.querySelector('input[name="deliverType"]:checked')?.value || 'digital';
+  
+  let basePrice = 450;
+  let breakdown = 'Tek Renk Dijital Renk Ayrımı';
+
+  if (colorVal === '2-3') {
+    basePrice = 650;
+    breakdown = '2 - 3 Renk Spot Kanal Ayrımı';
+  } else if (colorVal === '4-6') {
+    basePrice = 950;
+    breakdown = '4 - 6 Renk Çok Kanallı Tram Ayrımı';
+  } else if (colorVal === 'cmyk') {
+    basePrice = 1250;
+    breakdown = 'CMYK / Simüle Proses Renk Ayrımı';
+  }
+
+  if (deliverVal === 'film_cargo') {
+    basePrice += 350;
+    breakdown += ' + Pozlamaya Hazır Film Çıktısı (Kargo Dahil)';
+  }
+
+  const priceEl = document.getElementById('calculatedEmpPrice');
+  const breakEl = document.getElementById('empPriceBreakdown');
+  if (priceEl) priceEl.textContent = basePrice.toLocaleString('tr-TR') + ' TL';
+  if (breakEl) breakEl.textContent = breakdown;
+
+  // Update Whatsapp Link
+  const waBtn = document.getElementById('empWhatsappBtn');
+  if (waBtn) {
+    const msg = `Merhaba Trenddesen, Emprime Renk Ayrımı ve Film Çıktısı hizmeti için fiyat almak istiyorum.\n\n🎨 *Renk:* ${colorVal}\n📦 *Teslimat:* ${deliverVal === 'digital' ? 'Dijital Dosya' : 'Film Çıktısı (Kargo)'}\n💰 *Tutar:* ${basePrice} TL`;
+    waBtn.href = `https://wa.me/908503000000?text=${encodeURIComponent(msg)}`;
+  }
+}
+
+function submitCustomDoneOrder() {
+  const colorVal = document.querySelector('input[name="colorCount"]:checked')?.value || '1';
+  const deliverVal = document.querySelector('input[name="deliverType"]:checked')?.value || 'digital';
+  const price = parseInt(document.getElementById('calculatedEmpPrice').textContent) || 450;
+
+  CartEngine.addItem({
+    product_id: 'EMP-CUSTOM-' + Date.now().toString().slice(-4),
+    product_title: 'Özel Done Emprime Renk Ayrımı (' + colorVal + ' Renk - ' + (deliverVal === 'digital' ? 'Dijital' : 'Film Çıktılı') + ')',
+    product_code: 'EMP-CUSTOM',
+    fabric_id: 'emprime-service',
+    fabric_name: 'Renk Ayrımı Hizmeti',
+    unit_price: price,
+    meters: 1,
+    image: '/static/images/emprime/emp_pat_floral_wm.jpg'
+  });
+}
+
+// Modal Logic
+let activeModalData = {};
+function openEmpOrderModal(code, title, colors, tech) {
+  activeModalData = { code, title, colors, tech };
+  document.getElementById('modalEmpTitle').textContent = title;
+  document.getElementById('modalEmpCode').textContent = 'Kod: ' + code;
+  document.getElementById('modalEmpColors').textContent = colors + ' Renk';
+  document.getElementById('modalEmpTech').textContent = tech;
+  document.getElementById('empOrderModal').classList.remove('hidden');
+}
+
+function closeEmpOrderModal() {
+  document.getElementById('empOrderModal').classList.add('hidden');
+}
+
+function confirmEmpCatalogOrder() {
+  const sType = document.getElementById('modalServiceType').value;
+  const price = sType === 'digital' ? 500 : 850;
+  const phone = document.getElementById('modalClientPhone').value || '';
+
+  CartEngine.addItem({
+    product_id: activeModalData.code,
+    product_title: activeModalData.title + ' (Emprime Renk Ayrımı - ' + (sType === 'digital' ? 'Dijital' : 'Film Çıktılı') + ')',
+    product_code: activeModalData.code,
+    fabric_id: 'emprime-catalog',
+    fabric_name: activeModalData.tech,
+    unit_price: price,
+    meters: 1,
+    image: '/static/images/emprime/emp_pat_floral_wm.jpg'
+  });
+
+  closeEmpOrderModal();
+}
+
+function sendEmpWhatsapp() {
+  const sType = document.getElementById('modalServiceType').value;
+  const price = sType === 'digital' ? 500 : 850;
+  const msg = `Merhaba Trenddesen, "${activeModalData.title}" (${activeModalData.code}) emprime deseni için ${sType === 'digital' ? 'Dijital Renk Ayrımı' : 'Renk Ayrımı ve Film Çıktısı'} (${price} TL) siparişi vermek istiyorum.`;
+  window.open(`https://wa.me/908503000000?text=${encodeURIComponent(msg)}`, '_blank');
+}
+</script>
+{% endblock %}
