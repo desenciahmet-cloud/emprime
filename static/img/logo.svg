@@ -19,10 +19,10 @@
   
   <!-- EMBLEM: Precision Multi-layer Color Separation 'e' Monogram -->
   <g transform="translate(6, 6)">
-    <!-- Layer 1: Magenta Plate (Rotated +5 deg) -->
-    <rect x="10" y="2" width="46" height="46" rx="14" fill="url(#emp_magenta)" opacity="0.8" transform="rotate(6 33 25)"/>
+    <!-- Layer 1: Magenta Plate (Rotated +6 deg) -->
+    <rect x="10" y="2" width="46" height="46" rx="14" fill="url(#emp_magenta)" opacity="0.85" transform="rotate(6 33 25)"/>
     <!-- Layer 2: Emerald Plate (Rotated -3 deg) -->
-    <rect x="4" y="5" width="46" height="46" rx="14" fill="url(#emp_emerald)" opacity="0.85" transform="rotate(-3 27 28)"/>
+    <rect x="4" y="5" width="46" height="46" rx="14" fill="url(#emp_emerald)" opacity="0.9" transform="rotate(-3 27 28)"/>
     <!-- Layer 3: Cyan Foreground Plate -->
     <rect x="0" y="7" width="46" height="46" rx="14" fill="url(#emp_cyan)" filter="url(#emp_glow)"/>
     

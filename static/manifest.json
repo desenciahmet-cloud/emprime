@@ -12,7 +12,7 @@
   ],
   "orientation": "any",
   "background_color": "#090e17",
-  "theme_color": "#06b6d4",
+  "theme_color": "#090e17",
   "prefer_related_applications": false,
   "icons": [
     {
@@ -40,10 +40,34 @@
       "purpose": "maskable"
     }
   ],
+  "shortcuts": [
+    {
+      "name": "Renk Ayrımı İste",
+      "short_name": "Renk Ayrımı",
+      "description": "Kendi deseninizi yükleyin ve renk ayrımı teklifi alın",
+      "url": "/#custom-upload-wizard",
+      "icons": [{ "src": "/static/img/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Hazır Desen Koleksiyonu",
+      "short_name": "Katalog",
+      "description": "Özgün tekstil serigrafi desen arşivini inceleyin",
+      "url": "/#emprime-catalog",
+      "icons": [{ "src": "/static/img/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Hizmet Fiyatları",
+      "short_name": "Fiyatlar",
+      "description": "Metraj ve asetat film birim fiyat tablosu",
+      "url": "/#fiyat-tablosu",
+      "icons": [{ "src": "/static/img/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
   "categories": [
     "business",
     "productivity",
-    "utilities"
+    "utilities",
+    "shopping"
   ],
   "lang": "tr"
 }

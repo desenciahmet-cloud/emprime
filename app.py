@@ -46,19 +46,22 @@ templates = Jinja2Templates(directory=os.path.join(BASE_DIR, "templates"))
 async def favicon():
     ico_path = os.path.join(BASE_DIR, "static", "img", "favicon.ico")
     if os.path.exists(ico_path):
-        return FileResponse(ico_path, media_type="image/x-icon")
+        return FileResponse(ico_path, media_type="image/x-icon", headers={"Cache-Control": "public, max-age=86400"})
     fav_path = os.path.join(BASE_DIR, "static", "img", "favicon.svg")
-    return FileResponse(fav_path, media_type="image/svg+xml")
+    return FileResponse(fav_path, media_type="image/svg+xml", headers={"Cache-Control": "public, max-age=86400"})
 
 @app.get("/manifest.json", include_in_schema=False)
 async def get_manifest():
     manifest_path = os.path.join(BASE_DIR, "static", "manifest.json")
-    return FileResponse(manifest_path, media_type="application/manifest+json")
+    return FileResponse(manifest_path, media_type="application/manifest+json", headers={"Cache-Control": "public, max-age=3600"})
 
 @app.get("/sw.js", include_in_schema=False)
 async def get_sw():
     sw_path = os.path.join(BASE_DIR, "static", "sw.js")
-    return FileResponse(sw_path, media_type="application/javascript")
+    return FileResponse(sw_path, media_type="application/javascript", headers={
+        "Service-Worker-Allowed": "/",
+        "Cache-Control": "public, max-age=0, must-revalidate"
+    })
 
 # --- Web Pages ---
 

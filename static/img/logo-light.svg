@@ -15,11 +15,11 @@
   </defs>
   
   <g transform="translate(6, 6)">
-    <rect x="10" y="2" width="46" height="46" rx="14" fill="url(#emp_magenta_l)" opacity="0.8" transform="rotate(6 33 25)"/>
-    <rect x="4" y="5" width="46" height="46" rx="14" fill="url(#emp_emerald_l)" opacity="0.85" transform="rotate(-3 27 28)"/>
+    <rect x="10" y="2" width="46" height="46" rx="14" fill="url(#emp_magenta_l)" opacity="0.85" transform="rotate(6 33 25)"/>
+    <rect x="4" y="5" width="46" height="46" rx="14" fill="url(#emp_emerald_l)" opacity="0.9" transform="rotate(-3 27 28)"/>
     <rect x="0" y="7" width="46" height="46" rx="14" fill="url(#emp_cyan_l)"/>
     
-    <path d="M31 22 C23.8 22 18.5 26.2 18.5 32.5 C18.5 38.8 23.8 43 31 43 C35.2 43 38.6 40.8 40.8 38.2 L36.2 35 C35 36.5 33.2 37.5 31 37.5 C27.2 37.5 24.2 34.8 23.8 31 L43 31 C43.2 30.5 43.2 29.8 43.2 29 C43.2 24.2 38.6 22 31 22 Z M24.2 27.5 C25.2 24.5 27.8 23.5 31 23.5 C34.2 23.5 36.8 24.5 37.8 27.5 L24.2 27.5 Z" fill="#ffffff"/>
+    <path d="M31 22 C23.8 22 18.5 26.2 18.5 32.5 C18.5 38.8 23.8 43 31 43 C35.2 43 38.6 40.8 40.8 38.2 L36.2 35 C35 36.5 33.2 37.5 31 37.5 C27.2 37.5 24.2 34.8 23.8 31 L43 31 C43.2 30.5 43.2 29.8 43.2 29 C43.2 24.2 38.6 22 31 22 Z M24.2 27.5 C25.2 24.5 27.8 23.5 31 23.5 C34.2 23.5 36.8 24.5 37.8 27.5 L24.2 27.5 Z" fill="#0f172a"/>
     
     <circle cx="46" cy="10" r="5.5" fill="none" stroke="#0f172a" stroke-width="1.8"/>
     <line x1="46" y1="2" x2="46" y2="18" stroke="#0f172a" stroke-width="1.8"/>

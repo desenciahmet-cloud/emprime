@@ -8,13 +8,23 @@
   <meta name="description" content="emprime.site - Tekstil serigrafi baskı için yüksek densite asetat film çıktısı (A4, A3, A3+, A2), profesyonel CMYK ve spot renk ayrımı, kalıp hazırlığı stüdyosu.">
   <meta name="keywords" content="emprime, emprime.site, renk ayrımı, serigrafi film çıktısı, asetat film, kalıp hazırlığı, simüle proses, tram asetat, emprime baskı">
   
-  <link rel="icon" type="image/x-icon" href="/static/img/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/static/img/favicon-16x16.png">
-  <link rel="apple-touch-icon" href="/static/img/apple-touch-icon.png">
-  <link rel="icon" type="image/svg+xml" href="/static/img/favicon.svg">
-  <link rel="manifest" href="/manifest.json">
+  <!-- Favicons & Touch Icons (Cache-Busted) -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico?v=20261016">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=20261016">
+  <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon-32x32.png?v=20261016">
+  <link rel="icon" type="image/png" sizes="16x16" href="/static/img/favicon-16x16.png?v=20261016">
+  <link rel="icon" type="image/png" sizes="48x48" href="/static/img/favicon-48x48.png?v=20261016">
+  <link rel="icon" type="image/svg+xml" href="/static/img/favicon.svg?v=20261016">
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/img/apple-touch-icon.png?v=20261016">
+  
+  <!-- Mobile & PWA App Capabilities -->
+  <link rel="manifest" href="/manifest.json?v=20261016">
   <meta name="theme-color" content="#090e17">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="emprime.site">
+  <meta name="application-name" content="emprime.site">
   
   <!-- Open Graph -->
   <meta property="og:site_name" content="emprime.site">
@@ -56,7 +66,7 @@
   <script src="/static/js/lucide.min.js"></script>
   <link rel="stylesheet" href="/static/css/custom.css">
 </head>
-<body class="bg-slate-900 text-slate-100 font-sans flex flex-col min-h-full antialiased selection:bg-cyan-500 selection:text-slate-950">
+<body class="bg-slate-900 text-slate-100 font-sans flex flex-col min-h-full antialiased selection:bg-cyan-500 selection:text-slate-950 pb-20 lg:pb-0">
 
   <!-- Top Cross-Platform Announcement Bar -->
   <div class="bg-slate-950 text-slate-300 py-2 px-4 text-center border-b border-slate-800 text-xs">
@@ -105,9 +115,10 @@
         <!-- Right Action Buttons -->
         <div class="flex items-center gap-2.5 sm:gap-3">
           <!-- Install App Pill Button (Mobile / Desktop PWA) -->
-          <button id="pwaInstallBtn" onclick="installEmprimeApp()" style="display:none;" class="px-3 py-1.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-xs font-extrabold transition flex items-center gap-1.5">
-            <i data-lucide="download" class="w-3.5 h-3.5"></i>
+          <button id="pwaInstallBtn" onclick="installEmprimeApp()" class="px-2.5 sm:px-3 py-1.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-xs font-extrabold transition flex items-center gap-1.5 shadow-xs">
+            <i data-lucide="smartphone" class="w-3.5 h-3.5 text-cyan-400"></i>
             <span class="hidden sm:inline">Uygulamayı İndir</span>
+            <span class="sm:hidden">Uygulama</span>
           </button>
 
           <a href="https://wa.me/908503000000?text=Merhaba%20emprime.site%2C%20renk%20ayrımı%20ve%20film%20çıktısı%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="px-3.5 sm:px-4 py-2 bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-cyan-400 hover:to-teal-400 text-slate-950 rounded-xl text-xs font-extrabold transition shadow-md shadow-cyan-950/40 flex items-center gap-1.5">
@@ -125,6 +136,31 @@
       </div>
     </div>
   </header>
+
+  <!-- Mobile App Prominent Install Banner (Mobile Only) -->
+  <div id="mobileAppBanner" class="lg:hidden bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border-b border-cyan-500/25 px-4 py-2.5">
+    <div class="flex items-center justify-between gap-3">
+      <div class="flex items-center gap-2.5">
+        <img src="/static/img/favicon-32x32.png?v=20261016" class="w-8 h-8 rounded-lg border border-cyan-500/30 shadow-md" alt="emprime">
+        <div>
+          <div class="text-xs font-black text-white flex items-center gap-1.5">
+            emprime.site
+            <span class="text-[9px] px-1.5 py-0.5 bg-cyan-500/20 text-cyan-300 rounded font-bold uppercase tracking-wider">Cep Uygulaması</span>
+          </div>
+          <p class="text-[10px] text-slate-400">Hızlı renk ayrımı &amp; film siparişi</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <button onclick="installEmprimeApp()" class="px-3 py-1 bg-gradient-to-r from-cyan-500 to-teal-500 text-slate-950 rounded-lg text-xs font-black shadow-md flex items-center gap-1">
+          <i data-lucide="download" class="w-3 h-3"></i>
+          <span>Yükle</span>
+        </button>
+        <button onclick="dismissMobileBanner()" class="p-1 text-slate-400 hover:text-white" aria-label="Kapat">
+          <i data-lucide="x" class="w-3.5 h-3.5"></i>
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- Page Body Content -->
   <main class="flex-1">
@@ -246,6 +282,62 @@
     </div>
   </footer>
 
+  <!-- Fixed Mobile Bottom Navigation Bar (Cep Uygulaması Barı) -->
+  <nav class="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-slate-950/95 backdrop-blur-lg border-t border-slate-800 flex items-center justify-around py-2 px-1 text-slate-400 shadow-2xl">
+    <a href="/" class="flex flex-col items-center gap-1 text-cyan-400 text-[10px] font-bold">
+      <i data-lucide="home" class="w-5 h-5"></i>
+      <span>Ana Sayfa</span>
+    </a>
+    <a href="/#custom-upload-wizard" class="flex flex-col items-center gap-1 hover:text-cyan-400 transition text-[10px] font-medium text-slate-300">
+      <i data-lucide="upload-cloud" class="w-5 h-5"></i>
+      <span>Renk Ayrımı</span>
+    </a>
+    <a href="/#emprime-catalog" class="flex flex-col items-center gap-1 hover:text-cyan-400 transition text-[10px] font-medium text-slate-300">
+      <i data-lucide="palette" class="w-5 h-5"></i>
+      <span>Katalog</span>
+    </a>
+    <button onclick="installEmprimeApp()" class="flex flex-col items-center gap-1 hover:text-cyan-400 transition text-[10px] font-bold text-cyan-300">
+      <i data-lucide="smartphone" class="w-5 h-5 text-cyan-400"></i>
+      <span>Uygulama</span>
+    </button>
+    <button onclick="CartEngine.openDrawer()" class="relative flex flex-col items-center gap-1 hover:text-cyan-400 transition text-[10px] font-medium text-slate-300">
+      <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+      <span class="cart-count-badge absolute -top-1 right-2 bg-cyan-400 text-slate-950 text-[9px] font-extrabold rounded-full w-4 h-4 flex items-center justify-center" style="display:none;">0</span>
+      <span>Sepetim</span>
+    </button>
+  </nav>
+
+  <!-- iOS / Safari PWA Install Modal -->
+  <div id="iosInstallModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-xs z-50 hidden flex items-end sm:items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-sm w-full p-5 space-y-4 shadow-2xl text-white">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <div class="flex items-center gap-2.5">
+          <img src="/static/img/favicon-32x32.png?v=20261016" class="w-7 h-7 rounded-lg" alt="emprime">
+          <h4 class="font-extrabold text-sm text-cyan-400">emprime.site Cep Uygulaması</h4>
+        </div>
+        <button onclick="closeIosModal()" class="text-slate-400 hover:text-white p-1">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+      <p class="text-xs text-slate-300 leading-relaxed">
+        emprime.site uygulamasını iPhone veya iPad ana ekranınıza eklemek için:
+      </p>
+      <div class="space-y-2.5 text-xs">
+        <div class="flex items-start gap-2.5 bg-slate-950 p-2.5 rounded-xl border border-slate-800">
+          <span class="w-5 h-5 rounded-full bg-cyan-500/20 text-cyan-400 font-bold flex items-center justify-center shrink-0 text-[11px]">1</span>
+          <span class="text-slate-300">Safari menüsündeki <strong class="text-white">Paylaş (⎙ / ⬆)</strong> simgesine dokunun.</span>
+        </div>
+        <div class="flex items-start gap-2.5 bg-slate-950 p-2.5 rounded-xl border border-slate-800">
+          <span class="w-5 h-5 rounded-full bg-cyan-500/20 text-cyan-400 font-bold flex items-center justify-center shrink-0 text-[11px]">2</span>
+          <span class="text-slate-300">Açılan menüde aşağı kaydırıp <strong class="text-white">'Ana Ekrana Ekle'</strong> seçeneğini seçin.</span>
+        </div>
+      </div>
+      <button onclick="closeIosModal()" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-teal-500 text-slate-950 font-bold text-xs">
+        Anladım
+      </button>
+    </div>
+  </div>
+
   <script src="/static/js/app.js"></script>
   <script>
     if (typeof lucide !== 'undefined') {
@@ -259,26 +351,68 @@
       deferredPrompt = e;
       const btn = document.getElementById('pwaInstallBtn');
       if (btn) btn.style.display = 'inline-flex';
+      const banner = document.getElementById('mobileAppBanner');
+      if (banner && !sessionStorage.getItem('dismiss_emprime_banner')) {
+        banner.style.display = 'block';
+      }
     });
 
+    function isIos() {
+      const userAgent = window.navigator.userAgent.toLowerCase();
+      return /iphone|ipad|ipod/.test(userAgent);
+    }
+
+    function isInStandaloneMode() {
+      return (window.matchMedia('(display-mode: standalone)').matches) || (window.navigator.standalone === true);
+    }
+
     function installEmprimeApp() {
+      if (isInStandaloneMode()) {
+        CartEngine.showToast('emprime.site cep uygulaması zaten yüklü ve çalışıyor!', 'success');
+        return;
+      }
       if (deferredPrompt) {
         deferredPrompt.prompt();
         deferredPrompt.userChoice.then((choiceResult) => {
           if (choiceResult.outcome === 'accepted') {
             console.log('emprime.site app installed');
+            dismissMobileBanner();
+            CartEngine.showToast('emprime.site cep uygulaması başarıyla yüklendi!', 'success');
           }
           deferredPrompt = null;
-          const btn = document.getElementById('pwaInstallBtn');
-          if (btn) btn.style.display = 'none';
         });
+      } else if (isIos()) {
+        const modal = document.getElementById('iosInstallModal');
+        if (modal) modal.classList.remove('hidden');
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+      } else {
+        // Fallback for browsers without native prompt
+        CartEngine.showToast('Tarayıcınızın menüsünden (⋮) "Uygulamayı Yükle" veya "Ana Ekrana Ekle" seçebilirsiniz.', 'info');
       }
+    }
+
+    function closeIosModal() {
+      const modal = document.getElementById('iosInstallModal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    function dismissMobileBanner() {
+      const banner = document.getElementById('mobileAppBanner');
+      if (banner) banner.style.display = 'none';
+      sessionStorage.setItem('dismiss_emprime_banner', '1');
+    }
+
+    if (sessionStorage.getItem('dismiss_emprime_banner')) {
+      const banner = document.getElementById('mobileAppBanner');
+      if (banner) banner.style.display = 'none';
     }
 
     // Register Service Worker
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').catch(err => {
+        navigator.serviceWorker.register('/sw.js').then((reg) => {
+          console.log('SW registered:', reg.scope);
+        }).catch(err => {
           console.log('SW registration error:', err);
         });
       });
