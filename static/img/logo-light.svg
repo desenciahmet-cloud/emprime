@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 72" width="350" height="72">
+  <defs>
+    <linearGradient id="emp_cyan_l" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0891b2"/>
+      <stop offset="100%" stop-color="#0e7490"/>
+    </linearGradient>
+    <linearGradient id="emp_emerald_l" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <linearGradient id="emp_magenta_l" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e11d48"/>
+      <stop offset="100%" stop-color="#be123c"/>
+    </linearGradient>
+  </defs>
+  
+  <g transform="translate(6, 6)">
+    <rect x="10" y="2" width="46" height="46" rx="14" fill="url(#emp_magenta_l)" opacity="0.8" transform="rotate(6 33 25)"/>
+    <rect x="4" y="5" width="46" height="46" rx="14" fill="url(#emp_emerald_l)" opacity="0.85" transform="rotate(-3 27 28)"/>
+    <rect x="0" y="7" width="46" height="46" rx="14" fill="url(#emp_cyan_l)"/>
+    
+    <path d="M31 22 C23.8 22 18.5 26.2 18.5 32.5 C18.5 38.8 23.8 43 31 43 C35.2 43 38.6 40.8 40.8 38.2 L36.2 35 C35 36.5 33.2 37.5 31 37.5 C27.2 37.5 24.2 34.8 23.8 31 L43 31 C43.2 30.5 43.2 29.8 43.2 29 C43.2 24.2 38.6 22 31 22 Z M24.2 27.5 C25.2 24.5 27.8 23.5 31 23.5 C34.2 23.5 36.8 24.5 37.8 27.5 L24.2 27.5 Z" fill="#ffffff"/>
+    
+    <circle cx="46" cy="10" r="5.5" fill="none" stroke="#0f172a" stroke-width="1.8"/>
+    <line x1="46" y1="2" x2="46" y2="18" stroke="#0f172a" stroke-width="1.8"/>
+    <line x1="38" y1="10" x2="54" y2="10" stroke="#0f172a" stroke-width="1.8"/>
+    <circle cx="46" cy="10" r="1.5" fill="#0f172a"/>
+  </g>
+
+  <g transform="translate(88, 12)">
+    <text x="0" y="36" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="900" font-size="36" fill="#0f172a" letter-spacing="-0.8px">emprime</text>
+    <g transform="translate(162, 7)">
+      <rect x="0" y="3" width="66" height="28" rx="8" fill="#0891b2"/>
+      <text x="33" y="22" font-family="'Space Grotesk', system-ui, sans-serif" font-weight="800" font-size="16" fill="#ffffff" text-anchor="middle" letter-spacing="0.2px">.site</text>
+    </g>
+    <text x="2" y="50" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="800" font-size="8.5" fill="#0284c7" letter-spacing="2.6px">RENK AYRIMI &amp; FİLM STÜDYOSU</text>
+  </g>
+</svg>

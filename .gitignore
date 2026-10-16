@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.venv/
+env/
+venv/
+preview_*.png
+preview_site.py
+logo_concepts_preview.png
+logo_concepts.html
+generate_emprime_logos.py

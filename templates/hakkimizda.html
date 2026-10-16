@@ -1,38 +1,63 @@
 {% extends "base.html" %}
 
-{% block title %}Hakkımızda & Trenddesen | nevartrend{% endblock %}
+{% block title %}Hakkımızda | emprime.site - Renk Ayrımı & Film Stüdyosu{% endblock %}
 
 {% block content %}
 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
-  <nav class="flex text-xs text-slate-500 gap-2 items-center">
-    <a href="/" class="hover:text-emerald-700">Ana Sayfa</a>
+  <nav class="flex text-xs text-slate-400 gap-2 items-center">
+    <a href="/" class="hover:text-cyan-400 transition">Ana Sayfa</a>
     <span>/</span>
-    <span class="font-bold text-slate-800">Hakkımızda</span>
+    <span class="font-bold text-white">Hakkımızda</span>
   </nav>
 
   <div class="space-y-4">
-    <span class="text-xs font-bold text-emerald-700 uppercase tracking-wider">BİZ KİMİZ?</span>
-    <h1 class="font-serif-title text-3xl sm:text-4xl font-extrabold text-slate-900">
-      Trenddesen Güvencesiyle Dijital Tekstil ve Desen Stüdyosu
+    <span class="px-3 py-1 rounded-full text-xs font-extrabold bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 inline-flex items-center gap-1.5">
+      <i data-lucide="layers" class="w-3.5 h-3.5"></i> BİZ KİMİZ?
+    </span>
+    <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+      Endüstriyel Serigrafi Baskı &amp; Renk Ayrımı Stüdyosu
     </h1>
-    <p class="text-sm text-slate-600 leading-relaxed">
-      <strong>nevartrend</strong>, tekstil desen tasarımı ve endüstriyel baskı alanında yılların tecrübesine sahip <strong>Trenddesen</strong>'in dijital kumaş baskı ve e-ticaret platformudur.
+    <p class="text-sm text-slate-300 leading-relaxed">
+      <strong>emprime.site</strong>, tekstil parça baskı sektöründeki konfeksiyon üreticileri, serigrafi atölyeleri ve bağımsız moda tasarımcıları için yüksek standartlı renk ayrımı ve pozlama filmi çözümleri sunan profesyonel bir B2B platformudur. <strong>Trenddesen</strong> ekosisteminin teknik baskı kanadını temsil eder.
     </p>
   </div>
 
-  <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6 text-sm text-slate-700 leading-relaxed">
-    <h2 class="text-lg font-bold text-slate-900">Vizyonumuz ve Üretim Standartlarımız</h2>
+  <div class="bg-slate-950 p-8 rounded-3xl border border-slate-800 shadow-xl space-y-6 text-sm text-slate-300 leading-relaxed">
+    <h2 class="text-lg font-bold text-white flex items-center gap-2">
+      <i data-lucide="cpu" class="w-5 h-5 text-cyan-400"></i>
+      Teknik Uzmanlık &amp; Üretim Standartlarımız
+    </h2>
     <p>
-      Geleneksel kumaş tedarik süreçlerindeki yüksek minimum sipariş zorunluluklarını ortadan kaldırarak; bağımsız tasarımcılardan butik üreticilere, hazır giyim markalarından bireysel üreticilere kadar herkesin <strong>1 metreden başlayan siparişlerle</strong> yüksek kaliteli reaktif ve dispers dijital baskıya ulaşmasını sağlıyoruz.
+      Geleneksel emprime baskıda yaşanan en büyük zorluklar olan tram açı uyuşmazlığı (harelenme / moiré), yetersiz siyahlık (düşük Dmax) nedeniyle pozlama zayıflığı ve renk geçişlerinin bozulmasını ortadan kaldırıyoruz. Her deseni baskı yapılacak kumaşın rengine, gramajına ve tercih edilen kimyaya (Aşındırma, Su bazlı, Plastisol) göre özel olarak kalibre ediyoruz.
     </p>
 
-    <h2 class="text-lg font-bold text-slate-900">Neden Nevartrend?</h2>
-    <ul class="space-y-2 list-disc pl-5 text-slate-600">
-      <li><strong>74+ Dikişsiz Özel Desen Arşivi:</strong> Moda trendlerine uygun, raporlanmış ve yüksek çözünürlüklü özgün desen koleksiyonu.</li>
-      <li><strong>OEKO-TEX Sertifikalı Eko Baskı:</strong> Bebek ve çocuk giyimine uygun, çevre dostu su bazlı boyalar.</li>
-      <li><strong>Canlı 3D Giydirme Stüdyosu:</strong> Sipariş vermeden önce deseni gerçekçi modeller üzerinde görme imkanı.</li>
-      <li><strong>Emprime ve Film Çıktısı Uzmanlığı:</strong> Serigrafi atölyeleri için profesyonel kanal ayrımı ve 4.0 Dmax film çıktısı.</li>
+    <h2 class="text-lg font-bold text-white flex items-center gap-2">
+      <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400"></i>
+      Neden emprime.site?
+    </h2>
+    <ul class="space-y-3 list-none pl-0 text-slate-300">
+      <li class="flex items-start gap-2.5">
+        <i data-lucide="shield-check" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+        <div><strong>4.0 DMAX Optik Siyahlık:</strong> Yüksek densiteli asetat filmlerimiz, UV ışığını tam bloke ederek pozlama esnasında kalıbın patlamasını veya detay kaybetmesini engeller.</div>
+      </li>
+      <li class="flex items-start gap-2.5">
+        <i data-lucide="sliders" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+        <div><strong>Simüle Proses &amp; Spot Pantone Ayrımı:</strong> Fotoğrafik ve çok renkli karmaşık tasarımları en az kalıp adediyle en yüksek canlılıkta basabilmeniz için optimize edilmiş kanal ayrımı.</div>
+      </li>
+      <li class="flex items-start gap-2.5">
+        <i data-lucide="truck" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+        <div><strong>Korumalı Rulo Ambalaj &amp; Hızlı Teslimat:</strong> Çizilme ve bükülmelere karşı mukavva silindir tüplerde Türkiye'nin her yerine 24 saatte kargoya teslim.</div>
+      </li>
+      <li class="flex items-start gap-2.5">
+        <i data-lucide="download-cloud" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+        <div><strong>Aynı Gün Dijital Teslimat:</strong> Kanal ayrımı tamamlanmış çok katmanlı PSD/TIFF dosyalarını anında güvenli indirme bağlantısı ile alma seçeneği.</div>
+      </li>
     </ul>
+
+    <div class="pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+      <span>Atölye: Merter Tekstil Merkezi, İstanbul</span>
+      <span>E-Posta: destek@emprime.site</span>
+    </div>
   </div>
 </div>
 {% endblock %}

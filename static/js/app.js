@@ -1,47 +1,54 @@
-// nevartrend Client State & Cart Engine
+// emprime.site Client State & Cart Engine
 
 const CartEngine = {
+  STORAGE_KEY: 'emprime_cart_v1',
+
   getCart: function() {
     try {
-      const cart = localStorage.getItem('nevartrend_cart');
+      const cart = localStorage.getItem(this.STORAGE_KEY);
       return cart ? JSON.parse(cart) : [];
     } catch (e) {
+      console.error('Cart load error:', e);
       return [];
     }
   },
 
   saveCart: function(cart) {
-    localStorage.setItem('nevartrend_cart', JSON.stringify(cart));
-    this.updateUI();
+    try {
+      localStorage.setItem(this.STORAGE_KEY, JSON.stringify(cart));
+      this.updateUI();
+    } catch (e) {
+      console.error('Cart save error:', e);
+    }
   },
 
   addItem: function(item) {
     const cart = this.getCart();
     const existingIndex = cart.findIndex(function(i) {
-      return i.product_id === item.product_id && i.fabric_id === item.fabric_id;
+      return i.product_id === item.product_id && i.service_type === item.service_type;
     });
-    
+
     if (existingIndex > -1) {
-      cart[existingIndex].meters = parseFloat((cart[existingIndex].meters + item.meters).toFixed(1));
-      cart[existingIndex].total_price = Math.round(cart[existingIndex].meters * cart[existingIndex].unit_price);
+      cart[existingIndex].quantity = (cart[existingIndex].quantity || 1) + (item.quantity || 1);
+      cart[existingIndex].total_price = cart[existingIndex].quantity * cart[existingIndex].unit_price;
     } else {
       cart.push({
-        id: 'ITEM-' + Date.now(),
+        id: 'EMP-' + Date.now().toString().slice(-6),
         product_id: item.product_id,
         product_title: item.product_title,
         product_code: item.product_code || item.product_id,
-        fabric_id: item.fabric_id,
-        fabric_name: item.fabric_name,
-        unit_price: item.unit_price,
-        meters: item.meters,
-        total_price: Math.round(item.meters * item.unit_price),
-        image: item.image
+        technique: item.technique || 'Aşındırma / Su Bazlı',
+        service_type: item.service_type || 'Dijital Dosya',
+        unit_price: Number(item.unit_price) || 0,
+        quantity: Number(item.quantity) || 1,
+        total_price: (Number(item.quantity) || 1) * (Number(item.unit_price) || 0),
+        image: item.image || '/static/images/emprime/emp_pat_floral_wm.jpg'
       });
     }
 
     this.saveCart(cart);
     this.openDrawer();
-    this.showToast('Desen ve kumaş sepetinize eklendi!', 'success');
+    this.showToast('Hizmet sepetinize eklendi!', 'success');
   },
 
   removeItem: function(index) {
@@ -51,111 +58,86 @@ const CartEngine = {
     this.showToast('Ürün sepetten çıkarıldı.', 'info');
   },
 
-  updateMeters: function(index, meters) {
+  updateQuantity: function(index, qty) {
     const cart = this.getCart();
     if (cart[index]) {
-      const m = Math.max(0.5, parseFloat(meters) || 1);
-      cart[index].meters = parseFloat(m.toFixed(1));
-      cart[index].total_price = Math.round(cart[index].meters * cart[index].unit_price);
+      const q = Math.max(1, parseInt(qty) || 1);
+      cart[index].quantity = q;
+      cart[index].total_price = q * cart[index].unit_price;
       this.saveCart(cart);
     }
   },
 
   clearCart: function() {
-    localStorage.removeItem('nevartrend_cart');
+    localStorage.removeItem(this.STORAGE_KEY);
     this.updateUI();
-  },
-
-  getSubtotal: function() {
-    const cart = this.getCart();
-    return cart.reduce(function(sum, item) { return sum + item.total_price; }, 0);
-  },
-
-  getDiscount: function() {
-    const coupon = this.getCoupon();
-    if (!coupon) return 0;
-    const subtotal = this.getSubtotal();
-    if (coupon.discount_pct) {
-      return Math.round(subtotal * (coupon.discount_pct / 100));
-    }
-    return 0;
-  },
-
-  getShippingFee: function() {
-    const subtotal = this.getSubtotal();
-    const coupon = this.getCoupon();
-    if (coupon && coupon.free_shipping) return 0;
-    if (subtotal >= 1000 || subtotal === 0) return 0;
-    return 79.90;
+    this.showToast('Sepet temizlendi.', 'info');
   },
 
   getTotal: function() {
-    return Math.max(0, this.getSubtotal() - this.getDiscount() + this.getShippingFee());
-  },
-
-  getCoupon: function() {
-    try {
-      const c = localStorage.getItem('nevartrend_coupon');
-      return c ? JSON.parse(c) : null;
-    } catch(e) { return null; }
-  },
-
-  applyCoupon: function(couponObj) {
-    localStorage.setItem('nevartrend_coupon', JSON.stringify(couponObj));
-    this.updateUI();
-  },
-
-  removeCoupon: function() {
-    localStorage.removeItem('nevartrend_coupon');
-    this.updateUI();
+    const cart = this.getCart();
+    return cart.reduce(function(sum, item) {
+      return sum + (Number(item.total_price) || 0);
+    }, 0);
   },
 
   updateUI: function() {
     const cart = this.getCart();
-    const totalCount = cart.length;
-    const subtotal = this.getSubtotal();
-    const discount = this.getDiscount();
-    const shipping = this.getShippingFee();
+    const totalCount = cart.reduce(function(sum, item) { return sum + (item.quantity || 1); }, 0);
     const grandTotal = this.getTotal();
 
+    // Badges
     document.querySelectorAll('.cart-count-badge').forEach(function(el) {
       el.textContent = totalCount;
       el.style.display = totalCount > 0 ? 'flex' : 'none';
     });
 
-    const drawerList = document.getElementById('cart-drawer-items');
+    // Subtotal and Total labels
+    document.querySelectorAll('.summary-subtotal, .summary-total').forEach(function(el) {
+      el.textContent = grandTotal.toLocaleString('tr-TR') + ' TL';
+    });
+
+    // Cart Drawer Items Container
+    const drawerList = document.getElementById('cart-items-container');
     if (drawerList) {
       if (cart.length === 0) {
         drawerList.innerHTML = `
-          <div class="text-center py-12 px-4">
-            <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-3 text-slate-400">
-              <i data-lucide="shopping-bag" class="w-8 h-8"></i>
+          <div class="text-center py-12 px-4 space-y-3">
+            <div class="w-14 h-14 bg-slate-800 rounded-2xl flex items-center justify-center mx-auto text-slate-500 border border-slate-700">
+              <i data-lucide="shopping-bag" class="w-7 h-7"></i>
             </div>
-            <p class="font-medium text-slate-700">Sepetiniz Henüz Boş</p>
-            <p class="text-xs text-slate-500 mt-1">Beğendiğiniz desenleri istediğiniz kumaşa bastırın.</p>
-            <a href="/fabrics" class="inline-block mt-4 px-5 py-2 bg-emerald-700 text-white rounded-lg text-sm font-semibold hover:bg-emerald-800 transition">Kumaşları Keşfet</a>
+            <p class="font-bold text-white text-sm">Hizmet Sepetiniz Boş</p>
+            <p class="text-xs text-slate-400">Özel deseninizi yükleyebilir veya hazır koleksiyonumuzdan renk ayrımı talep edebilirsiniz.</p>
+            <a href="#custom-upload-wizard" onclick="CartEngine.closeDrawer()" class="inline-flex items-center gap-1.5 px-4 py-2 bg-gradient-to-r from-cyan-500 to-teal-500 text-slate-950 rounded-xl text-xs font-extrabold hover:brightness-110 transition shadow-md">
+              <i data-lucide="upload-cloud" class="w-3.5 h-3.5"></i>
+              <span>Renk Ayrımı İste</span>
+            </a>
           </div>
         `;
       } else {
         drawerList.innerHTML = cart.map(function(item, idx) {
           return `
-            <div class="flex items-center gap-3 p-3 bg-white border border-slate-200 rounded-xl shadow-sm mb-2.5">
-              <img src="${item.image}" class="w-16 h-16 object-cover rounded-lg flex-shrink-0 border" alt="${item.product_title}">
-              <div class="flex-1 min-w-0">
-                <div class="flex justify-between items-start">
-                  <h4 class="text-sm font-semibold text-slate-800 truncate pr-2">${item.product_title}</h4>
-                  <button onclick="CartEngine.removeItem(${idx})" class="text-slate-400 hover:text-red-500 transition p-1">
-                    <i data-lucide="trash-2" class="w-4 h-4"></i>
+            <div class="flex items-start gap-3 py-3 border-b border-slate-800/80 last:border-b-0">
+              <img src="${item.image}" class="w-14 h-14 object-cover rounded-xl border border-slate-700 bg-slate-800 shrink-0" alt="${item.product_title}">
+              <div class="flex-1 min-w-0 space-y-1">
+                <div class="flex justify-between items-start gap-1">
+                  <h4 class="text-xs font-bold text-white leading-tight line-clamp-1">${item.product_title}</h4>
+                  <button onclick="CartEngine.removeItem(${idx})" title="Sil" class="text-slate-500 hover:text-rose-400 transition p-0.5">
+                    <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
                   </button>
                 </div>
-                <p class="text-xs text-emerald-700 font-medium">${item.fabric_name}</p>
-                <div class="flex items-center justify-between mt-2">
-                  <div class="flex items-center border border-slate-200 rounded-lg overflow-hidden">
-                    <button onclick="CartEngine.updateMeters(${idx}, ${item.meters - 0.5})" class="px-2 py-0.5 bg-slate-50 hover:bg-slate-100 text-slate-600 text-xs font-bold">-</button>
-                    <span class="px-2 py-0.5 text-xs font-semibold text-slate-800">${item.meters} m</span>
-                    <button onclick="CartEngine.updateMeters(${idx}, ${item.meters + 0.5})" class="px-2 py-0.5 bg-slate-50 hover:bg-slate-100 text-slate-600 text-xs font-bold">+</button>
+                <div class="flex items-center gap-2 text-[10px] text-cyan-400 font-semibold">
+                  <span>${item.technique}</span>
+                  <span class="text-slate-600">•</span>
+                  <span class="text-slate-300">${item.service_type}</span>
+                </div>
+                <div class="flex items-center justify-between pt-1">
+                  <div class="flex items-center border border-slate-700 rounded-lg overflow-hidden bg-slate-800">
+                    <button onclick="CartEngine.updateQuantity(${idx}, ${(item.quantity || 1) - 1})" class="px-2 py-0.5 text-slate-400 hover:bg-slate-700 text-xs font-bold">-</button>
+                    <span class="px-2 py-0.5 text-xs font-extrabold text-white">${item.quantity || 1}</span>
+                    <button onclick="CartEngine.updateQuantity(${idx}, ${(item.quantity || 1) + 1})" class="px-2 py-0.5 text-slate-400 hover:bg-slate-700 text-xs font-bold">+</button>
                   </div>
-                  <span class="text-sm font-bold text-slate-900">${item.total_price.toLocaleString('tr-TR')} TL</span>
+                  <span class="text-xs font-extrabold text-cyan-300">${item.total_price.toLocaleString('tr-TR')} TL</span>
                 </div>
               </div>
             </div>
@@ -163,69 +145,6 @@ const CartEngine = {
         }).join('');
       }
     }
-
-    const drawerSubtotal = document.getElementById('drawer-subtotal');
-    if (drawerSubtotal) drawerSubtotal.textContent = subtotal.toLocaleString('tr-TR') + ' TL';
-
-    const freeShippingThreshold = 1000;
-    const remainingForFree = Math.max(0, freeShippingThreshold - subtotal);
-    const freeShippingProgress = Math.min(100, (subtotal / freeShippingThreshold) * 100);
-
-    const progressBar = document.getElementById('free-shipping-progress');
-    const freeShippingText = document.getElementById('free-shipping-text');
-    if (progressBar) progressBar.style.width = freeShippingProgress + '%';
-    if (freeShippingText) {
-      if (subtotal >= freeShippingThreshold) {
-        freeShippingText.innerHTML = '<span class="text-emerald-600 font-bold flex items-center gap-1"><i data-lucide="check-circle-2" class="w-4 h-4"></i> Harika! Ücretsiz Kargo Kazandınız!</span>';
-      } else {
-        freeShippingText.innerHTML = 'Ücretsiz Kargo için <strong class="text-emerald-700">' + remainingForFree.toFixed(0) + ' TL</strong> daha ekleyin!';
-      }
-    }
-
-    const cartTableBody = document.getElementById('cart-page-items');
-    if (cartTableBody) {
-      if (cart.length === 0) {
-        cartTableBody.innerHTML = '<tr><td colspan="6" class="text-center py-12 text-slate-500">Sepetinizde ürün bulunmamaktadır.</td></tr>';
-      } else {
-        cartTableBody.innerHTML = cart.map(function(item, idx) {
-          return `
-            <tr class="border-b border-slate-100 hover:bg-slate-50/50">
-              <td class="py-4 px-4">
-                <div class="flex items-center gap-3">
-                  <img src="${item.image}" class="w-16 h-16 rounded-xl object-cover border" alt="${item.product_title}">
-                  <div>
-                    <a href="/product/${item.product_id}" class="font-bold text-slate-800 hover:text-emerald-700 text-sm block">${item.product_title}</a>
-                    <span class="text-xs text-slate-400">Kod: ${item.product_code}</span>
-                  </div>
-                </div>
-              </td>
-              <td class="py-4 px-4 text-sm font-medium text-slate-700">
-                <span class="px-2.5 py-1 bg-emerald-50 text-emerald-800 rounded-md text-xs font-semibold border border-emerald-100">${item.fabric_name}</span>
-              </td>
-              <td class="py-4 px-4 text-sm text-slate-600 font-semibold">${item.unit_price} TL / m</td>
-              <td class="py-4 px-4">
-                <div class="inline-flex items-center border border-slate-200 rounded-lg bg-white">
-                  <button onclick="CartEngine.updateMeters(${idx}, ${item.meters - 0.5})" class="px-3 py-1 text-slate-500 hover:bg-slate-100">-</button>
-                  <span class="w-14 text-center text-sm font-bold">${item.meters} m</span>
-                  <button onclick="CartEngine.updateMeters(${idx}, ${item.meters + 0.5})" class="px-3 py-1 text-slate-500 hover:bg-slate-100">+</button>
-                </div>
-              </td>
-              <td class="py-4 px-4 font-bold text-slate-900 text-base">${item.total_price.toLocaleString('tr-TR')} TL</td>
-              <td class="py-4 px-4 text-right">
-                <button onclick="CartEngine.removeItem(${idx})" class="text-slate-400 hover:text-red-600 p-2 rounded-lg hover:bg-red-50 transition">
-                  <i data-lucide="trash-2" class="w-4 h-4"></i>
-                </button>
-              </td>
-            </tr>
-          `;
-        }).join('');
-      }
-    }
-
-    document.querySelectorAll('.summary-subtotal').forEach(function(el) { el.textContent = subtotal.toLocaleString('tr-TR') + ' TL'; });
-    document.querySelectorAll('.summary-discount').forEach(function(el) { el.textContent = discount > 0 ? '-' + discount.toLocaleString('tr-TR') + ' TL' : '0 TL'; });
-    document.querySelectorAll('.summary-shipping').forEach(function(el) { el.textContent = shipping === 0 ? 'Ücretsiz' : shipping.toFixed(2) + ' TL'; });
-    document.querySelectorAll('.summary-grandtotal').forEach(function(el) { el.textContent = grandTotal.toLocaleString('tr-TR') + ' TL'; });
 
     if (window.lucide) {
       lucide.createIcons();
@@ -252,13 +171,41 @@ const CartEngine = {
     }
   },
 
+  checkoutWhatsapp: function() {
+    const cart = this.getCart();
+    if (cart.length === 0) {
+      this.showToast('Sepetinizde ürün bulunmamaktadır.', 'info');
+      return;
+    }
+
+    let msg = '🌟 *emprime.site Hizmet & Sipariş Talebi*\n\n';
+    cart.forEach(function(item, idx) {
+      msg += `${idx + 1}. *${item.product_title}*\n`;
+      msg += `   • Baskı Türü: ${item.technique}\n`;
+      msg += `   • Teslimat: ${item.service_type}\n`;
+      msg += `   • Adet/Set: ${item.quantity}\n`;
+      msg += `   • Tutar: ${item.total_price.toLocaleString('tr-TR')} TL\n\n`;
+    });
+
+    msg += `💰 *Genel Toplam:* ${this.getTotal().toLocaleString('tr-TR')} TL\n\n`;
+    msg += `Merhabalar, yukarıdaki renk ayrımı ve film siparişini başlatmak ve teknik detayları iletmek istiyorum.`;
+
+    const waUrl = `https://wa.me/908503000000?text=${encodeURIComponent(msg)}`;
+    window.open(waUrl, '_blank');
+  },
+
   showToast: function(message, type) {
     type = type || 'info';
     const container = document.getElementById('toast-container');
     if (!container) return;
+
     const toast = document.createElement('div');
-    toast.className = 'flex items-center gap-2.5 px-4 py-3 rounded-xl shadow-lg text-sm text-white font-medium transform transition-all duration-300 translate-y-3 opacity-0 ' + (type === 'success' ? 'bg-emerald-800' : 'bg-slate-900');
-    toast.innerHTML = '<i data-lucide="' + (type === 'success' ? 'check-circle' : 'info') + '" class="w-4 h-4"></i> <span>' + message + '</span>';
+    const isSuccess = type === 'success';
+    toast.className = `flex items-center gap-2.5 px-4 py-3 rounded-2xl shadow-xl text-xs font-bold text-white transform transition-all duration-300 translate-y-3 opacity-0 border ${
+      isSuccess ? 'bg-slate-900 border-cyan-500/50 text-cyan-300 shadow-cyan-950/50' : 'bg-slate-900 border-slate-700 text-slate-200'
+    }`;
+    toast.innerHTML = `<i data-lucide="${isSuccess ? 'check-circle' : 'info'}" class="w-4 h-4 ${isSuccess ? 'text-cyan-400' : 'text-slate-400'}"></i> <span>${message}</span>`;
+    
     container.appendChild(toast);
     if (window.lucide) lucide.createIcons();
     
@@ -269,7 +216,7 @@ const CartEngine = {
     setTimeout(function() {
       toast.classList.add('opacity-0', 'translate-y-3');
       setTimeout(function() { toast.remove(); }, 300);
-    }, 3000);
+    }, 3200);
   }
 };
 

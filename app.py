@@ -9,7 +9,7 @@ from fastapi.templating import Jinja2Templates
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.gzip import GZipMiddleware
 
-app = FastAPI(title="Emprime Baskı & Renk Ayrımı Stüdyosu")
+app = FastAPI(title="emprime.site | Emprime Baskı & Renk Ayrımı Stüdyosu")
 
 # 1. High-speed GZIP compression
 app.add_middleware(GZipMiddleware, minimum_size=800)
@@ -50,20 +50,46 @@ async def favicon():
     fav_path = os.path.join(BASE_DIR, "static", "img", "favicon.svg")
     return FileResponse(fav_path, media_type="image/svg+xml")
 
+@app.get("/manifest.json", include_in_schema=False)
+async def get_manifest():
+    manifest_path = os.path.join(BASE_DIR, "static", "manifest.json")
+    return FileResponse(manifest_path, media_type="application/manifest+json")
+
+@app.get("/sw.js", include_in_schema=False)
+async def get_sw():
+    sw_path = os.path.join(BASE_DIR, "static", "sw.js")
+    return FileResponse(sw_path, media_type="application/javascript")
+
 # --- Web Pages ---
 
 @app.get("/", response_class=HTMLResponse)
 async def home_page(request: Request):
-    return templates.TemplateResponse("index.html", {
-        "request": request,
+    return templates.TemplateResponse(request=request, name="index.html", context={
         "active_page": "home"
     })
 
 @app.get("/hakkimizda", response_class=HTMLResponse)
 async def about_page(request: Request):
-    return templates.TemplateResponse("hakkimizda.html", {
-        "request": request,
+    return templates.TemplateResponse(request=request, name="hakkimizda.html", context={
         "active_page": "about"
+    })
+
+@app.get("/teslimat-kargo", response_class=HTMLResponse)
+async def delivery_page(request: Request):
+    return templates.TemplateResponse(request=request, name="teslimat_kargo.html", context={
+        "active_page": "delivery"
+    })
+
+@app.get("/iptal-iade", response_class=HTMLResponse)
+async def returns_page(request: Request):
+    return templates.TemplateResponse(request=request, name="iptal_iade.html", context={
+        "active_page": "returns"
+    })
+
+@app.get("/kvkk-gizlilik", response_class=HTMLResponse)
+async def privacy_page(request: Request):
+    return templates.TemplateResponse(request=request, name="kvkk_gizlilik.html", context={
+        "active_page": "privacy"
     })
 
 # --- API Endpoints ---
