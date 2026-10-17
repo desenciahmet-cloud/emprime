@@ -129,12 +129,18 @@ async def calculate_quote(
     film_size: Optional[str] = Form("A3"), # "A4", "A3", "A2"
     technique: Optional[str] = Form("su-bazli")
 ):
-    # Pricing formula
-    base_digital_per_color = 120
-    film_rates = {"A4": 80, "A3": 140, "A2": 260}
+    # Pricing formula based on new standard atelier price list
+    if technique == "cmyk":
+        base_digital_per_color = 200 # CMYK Kanal Başına 200 TL
+    elif technique == "simule":
+        base_digital_per_color = 300 # Simüle Proses Set Ayrımı 300 TL
+    else:
+        base_digital_per_color = 260 # Tek Renk Çalışma Fiyatı 260 TL
+    
+    film_rates = {"A4": 240, "A3": 340, "A2": 400, "A1": 600, "A0": 900}
     
     separation_price = color_count * base_digital_per_color
-    film_price = (color_count * film_rates.get(film_size, 140)) if delivery_type == "film" else 0
+    film_price = (color_count * film_rates.get(film_size, 340)) if delivery_type == "film" else 0
     total = separation_price + film_price
     
     return {

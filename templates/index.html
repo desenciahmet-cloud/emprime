@@ -500,6 +500,46 @@
             </div>
           </label>
         </div>
+
+        <!-- Film Ebat Seçimi (Film Çıktısı Seçildiğinde Görünür) -->
+        <div id="filmSizeSelectorBox" class="hidden space-y-2 pt-3 border-t border-slate-800">
+          <label class="block text-xs font-bold text-slate-300 flex items-center gap-1.5">
+            <i data-lucide="layers" class="w-3.5 h-3.5 text-cyan-400"></i>
+            <span>Film Ebatını Seçin:</span>
+          </label>
+          <div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
+            <label class="cursor-pointer border border-slate-800 hover:border-cyan-500 rounded-xl p-2.5 text-center bg-slate-950 has-[:checked]:border-cyan-400 has-[:checked]:bg-cyan-950/40 transition block">
+              <input type="radio" name="filmSizeOption" value="A4" onchange="calcEmpPrice()" class="hidden">
+              <div class="font-bold text-xs text-white">A4 Film</div>
+              <div class="text-[10px] text-slate-400">210×297 mm</div>
+              <div class="text-[11px] text-cyan-300 font-extrabold mt-0.5">+240 TL</div>
+            </label>
+            <label class="cursor-pointer border border-slate-800 hover:border-cyan-500 rounded-xl p-2.5 text-center bg-slate-950 has-[:checked]:border-cyan-400 has-[:checked]:bg-cyan-950/40 transition block">
+              <input type="radio" name="filmSizeOption" value="A3" checked onchange="calcEmpPrice()" class="hidden">
+              <div class="font-bold text-xs text-white">A3 Film</div>
+              <div class="text-[10px] text-slate-400">297×420 mm</div>
+              <div class="text-[11px] text-cyan-300 font-extrabold mt-0.5">+340 TL</div>
+            </label>
+            <label class="cursor-pointer border border-slate-800 hover:border-cyan-500 rounded-xl p-2.5 text-center bg-slate-950 has-[:checked]:border-cyan-400 has-[:checked]:bg-cyan-950/40 transition block">
+              <input type="radio" name="filmSizeOption" value="A2" onchange="calcEmpPrice()" class="hidden">
+              <div class="font-bold text-xs text-white">A2 Film</div>
+              <div class="text-[10px] text-slate-400">420×594 mm</div>
+              <div class="text-[11px] text-cyan-300 font-extrabold mt-0.5">+400 TL</div>
+            </label>
+            <label class="cursor-pointer border border-slate-800 hover:border-cyan-500 rounded-xl p-2.5 text-center bg-slate-950 has-[:checked]:border-cyan-400 has-[:checked]:bg-cyan-950/40 transition block">
+              <input type="radio" name="filmSizeOption" value="A1" onchange="calcEmpPrice()" class="hidden">
+              <div class="font-bold text-xs text-white">A1 Film</div>
+              <div class="text-[10px] text-slate-400">594×841 mm</div>
+              <div class="text-[11px] text-cyan-300 font-extrabold mt-0.5">+600 TL</div>
+            </label>
+            <label class="cursor-pointer border border-slate-800 hover:border-cyan-500 rounded-xl p-2.5 text-center bg-slate-950 has-[:checked]:border-cyan-400 has-[:checked]:bg-cyan-950/40 transition block">
+              <input type="radio" name="filmSizeOption" value="A0" onchange="calcEmpPrice()" class="hidden">
+              <div class="font-bold text-xs text-white">A0 Film</div>
+              <div class="text-[10px] text-slate-400">841×1189 mm</div>
+              <div class="text-[11px] text-cyan-300 font-extrabold mt-0.5">+900 TL</div>
+            </label>
+          </div>
+        </div>
       </div>
 
       <!-- PRICE CALCULATION & SUBMIT -->
@@ -507,10 +547,10 @@
         <div class="space-y-1 text-center sm:text-left">
           <span class="text-xs text-slate-400">Hesaplanan Hizmet Bedeli:</span>
           <div class="flex items-baseline gap-2 justify-center sm:justify-start">
-            <span id="calculatedEmpPrice" class="text-3xl sm:text-4xl font-black text-cyan-300">450 TL</span>
+            <span id="calculatedEmpPrice" class="text-3xl sm:text-4xl font-black text-cyan-300">260 TL</span>
             <span class="text-xs text-slate-400 font-semibold">(KDV Dahil)</span>
           </div>
-          <p class="text-[11px] text-slate-400" id="empPriceBreakdown">Tek Renk Dijital Renk Ayrımı</p>
+          <p class="text-[11px] text-slate-400" id="empPriceBreakdown">Tek Renk Dijital Çalışma (260 TL)</p>
         </div>
 
         <div class="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
@@ -637,7 +677,7 @@
 
 <!-- SECTION 4: ŞEFFAF FİYAT LİSTESİ -->
 <section id="fiyat-tablosu" class="py-16 bg-slate-950 border-b border-slate-800">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
     <div class="text-center max-w-2xl mx-auto space-y-2">
       <span class="px-3 py-1 rounded-full text-xs font-extrabold bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 inline-flex items-center gap-1.5">
         <i data-lucide="tag" class="w-3.5 h-3.5"></i> ŞEFFAF FİYAT LİSTESİ
@@ -648,69 +688,146 @@
       <p class="text-xs sm:text-sm text-slate-400">
         Gizli maliyet yok. Standart atölye fiyatlarımız şeffaf olarak aşağıda yer almaktadır.
       </p>
+      <div class="sm:hidden inline-flex items-center gap-1.5 text-[11px] text-cyan-400 font-semibold bg-cyan-950/40 px-3 py-1 rounded-full border border-cyan-500/20 mt-2">
+        <i data-lucide="move-horizontal" class="w-3.5 h-3.5"></i>
+        <span>Tabloyu yana kaydırarak tüm fiyatları inceleyebilirsiniz</span>
+      </div>
     </div>
 
     <div class="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 shadow-2xl">
-      <table class="w-full text-left text-xs sm:text-sm">
-        <thead class="bg-slate-950 border-b border-slate-800 text-slate-400 uppercase text-[10px] tracking-wider font-extrabold">
-          <tr>
-            <th class="py-4 px-6">Hizmet / Çıktı Türü</th>
-            <th class="py-4 px-6">Ebat / Kapsam</th>
-            <th class="py-4 px-6">Teknik Özellik</th>
-            <th class="py-4 px-6 text-right">Birim Fiyat</th>
-          </tr>
-        </thead>
-        <tbody class="divide-y divide-slate-800 text-slate-300">
-          <tr class="hover:bg-slate-800/40 transition">
-            <td class="py-3.5 px-6 font-bold text-white flex items-center gap-2">
-              <i data-lucide="film" class="w-4 h-4 text-cyan-400"></i> A4 Asetat Film
-            </td>
-            <td class="py-3.5 px-6">210 × 297 mm</td>
-            <td class="py-3.5 px-6 text-slate-400">4.0 Dmax Yüksek Densite</td>
-            <td class="py-3.5 px-6 text-right font-black text-cyan-300">120 TL / film</td>
-          </tr>
-          <tr class="hover:bg-slate-800/40 transition">
-            <td class="py-3.5 px-6 font-bold text-white flex items-center gap-2">
-              <i data-lucide="film" class="w-4 h-4 text-cyan-400"></i> A3 Asetat Film
-            </td>
-            <td class="py-3.5 px-6">297 × 420 mm</td>
-            <td class="py-3.5 px-6 text-slate-400">4.0 Dmax Yüksek Densite</td>
-            <td class="py-3.5 px-6 text-right font-black text-cyan-300">180 TL / film</td>
-          </tr>
-          <tr class="hover:bg-slate-800/40 transition">
-            <td class="py-3.5 px-6 font-bold text-white flex items-center gap-2">
-              <i data-lucide="film" class="w-4 h-4 text-cyan-400"></i> A3+ Asetat Film
-            </td>
-            <td class="py-3.5 px-6">329 × 483 mm</td>
-            <td class="py-3.5 px-6 text-slate-400">4.0 Dmax Yüksek Densite</td>
-            <td class="py-3.5 px-6 text-right font-black text-cyan-300">220 TL / film</td>
-          </tr>
-          <tr class="hover:bg-slate-800/40 transition">
-            <td class="py-3.5 px-6 font-bold text-white flex items-center gap-2">
-              <i data-lucide="film" class="w-4 h-4 text-cyan-400"></i> A2 Asetat Film
-            </td>
-            <td class="py-3.5 px-6">420 × 594 mm</td>
-            <td class="py-3.5 px-6 text-slate-400">Geniş Format Serigrafi</td>
-            <td class="py-3.5 px-6 text-right font-black text-cyan-300">350 TL / film</td>
-          </tr>
-          <tr class="hover:bg-slate-800/40 transition">
-            <td class="py-3.5 px-6 font-bold text-white flex items-center gap-2">
-              <i data-lucide="file-code" class="w-4 h-4 text-emerald-400"></i> Dijital Renk Ayrımı (Spot)
-            </td>
-            <td class="py-3.5 px-6">Kanal Başına</td>
-            <td class="py-3.5 px-6 text-slate-400">Katmanlı PSD / TIFF Ayrımı</td>
-            <td class="py-3.5 px-6 text-right font-black text-emerald-300">150 TL / renk</td>
-          </tr>
-          <tr class="hover:bg-slate-800/40 transition">
-            <td class="py-3.5 px-6 font-bold text-white flex items-center gap-2">
-              <i data-lucide="palette" class="w-4 h-4 text-rose-400"></i> Simüle Proses Set Ayrımı
-            </td>
-            <td class="py-3.5 px-6">Komple Desen</td>
-            <td class="py-3.5 px-6 text-slate-400">Eliptik Tram Açılı (6-9 Renk)</td>
-            <td class="py-3.5 px-6 text-right font-black text-rose-300">850 TL / desen</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="overflow-x-auto">
+        <table class="w-full min-w-[720px] text-left text-xs sm:text-sm">
+          <thead class="bg-slate-950 border-b border-slate-800 text-slate-400 uppercase text-[10px] sm:text-[11px] tracking-wider font-extrabold">
+            <tr>
+              <th class="py-4 px-4 sm:px-6">HİZMET / ÇIKTI TÜRÜ</th>
+              <th class="py-4 px-4 sm:px-6">EBAT/KAPSAM</th>
+              <th class="py-4 px-4 sm:px-6">TEKNİK ÖZELLİKLER</th>
+              <th class="py-4 px-4 sm:px-6 text-center">ÇALIŞMA FİYATI</th>
+              <th class="py-4 px-4 sm:px-6 text-center">FİLM FİYATI</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800 text-slate-300">
+            <!-- 1. A4 Asetat Film -->
+            <tr class="hover:bg-slate-800/40 transition">
+              <td class="py-4 px-4 sm:px-6 font-bold text-white flex items-center gap-2.5 whitespace-nowrap">
+                <i data-lucide="film" class="w-4 h-4 text-cyan-400 flex-shrink-0"></i>
+                <span>A4 Asetat Film</span>
+              </td>
+              <td class="py-4 px-4 sm:px-6 text-slate-300 font-medium whitespace-nowrap">210 × 297 mm</td>
+              <td class="py-4 px-4 sm:px-6">
+                <div class="flex items-center justify-between gap-4">
+                  <span class="text-slate-400">4.0 Dmax Yüksek Densite</span>
+                  <span class="text-slate-400 text-xs font-semibold">Tek Renk</span>
+                </div>
+              </td>
+              <td class="py-4 px-4 sm:px-6 text-center font-bold text-cyan-400 text-sm sm:text-base whitespace-nowrap">260 TL</td>
+              <td class="py-4 px-4 sm:px-6 text-center font-bold text-cyan-400 text-sm sm:text-base whitespace-nowrap">240 TL</td>
+            </tr>
+
+            <!-- 2. A3 Asetat Film -->
+            <tr class="hover:bg-slate-800/40 transition">
+              <td class="py-4 px-4 sm:px-6 font-bold text-white flex items-center gap-2.5 whitespace-nowrap">
+                <i data-lucide="film" class="w-4 h-4 text-cyan-400 flex-shrink-0"></i>
+                <span>A3 Asetat Film</span>
+              </td>
+              <td class="py-4 px-4 sm:px-6 text-slate-300 font-medium whitespace-nowrap">297 × 420 mm</td>
+              <td class="py-4 px-4 sm:px-6">
+                <div class="flex items-center justify-between gap-4">
+                  <span class="text-slate-400">4.0 Dmax Yüksek Densite</span>
+                  <span class="text-slate-400 text-xs font-semibold">Tek Renk</span>
+                </div>
+              </td>
+              <td class="py-4 px-4 sm:px-6 text-center font-bold text-cyan-400 text-sm sm:text-base whitespace-nowrap">260 TL</td>
+              <td class="py-4 px-4 sm:px-6 text-center font-bold text-cyan-400 text-sm sm:text-base whitespace-nowrap">340 TL</td>
+            </tr>
+
+            <!-- 3. A2 Asetat Film -->
+            <tr class="hover:bg-slate-800/40 transition">
+              <td class="py-4 px-4 sm:px-6 font-bold text-white flex items-center gap-2.5 whitespace-nowrap">
+                <i data-lucide="film" class="w-4 h-4 text-cyan-400 flex-shrink-0"></i>
+                <span>A2 Asetat Film</span>
+              </td>
+              <td class="py-4 px-4 sm:px-6 text-slate-300 font-medium whitespace-nowrap">420 × 594 mm</td>
+              <td class="py-4 px-4 sm:px-6">
+                <div class="flex items-center justify-between gap-4">
+                  <span class="text-slate-400">4.0 Dmax Yüksek Densite</span>
+                  <span class="text-slate-400 text-xs font-semibold">Tek Renk</span>
+                </div>
+              </td>
+              <td class="py-4 px-4 sm:px-6 text-center font-bold text-cyan-400 text-sm sm:text-base whitespace-nowrap">260 TL</td>
+              <td class="py-4 px-4 sm:px-6 text-center font-bold text-cyan-400 text-sm sm:text-base whitespace-nowrap">400 TL</td>
+            </tr>
+
+            <!-- 4. A1 Asetat Film -->
+            <tr class="hover:bg-slate-800/40 transition">
+              <td class="py-4 px-4 sm:px-6 font-bold text-white flex items-center gap-2.5 whitespace-nowrap">
+                <i data-lucide="film" class="w-4 h-4 text-cyan-400 flex-shrink-0"></i>
+                <span>A1 Asetat Film</span>
+              </td>
+              <td class="py-4 px-4 sm:px-6 text-slate-300 font-medium whitespace-nowrap">594x841 mm</td>
+              <td class="py-4 px-4 sm:px-6">
+                <div class="flex items-center justify-between gap-4">
+                  <span class="text-slate-400">4.0 Dmax Yüksek Densite</span>
+                  <span class="text-slate-400 text-xs font-semibold">Tek Renk</span>
+                </div>
+              </td>
+              <td class="py-4 px-4 sm:px-6 text-center font-bold text-cyan-400 text-sm sm:text-base whitespace-nowrap">260 TL</td>
+              <td class="py-4 px-4 sm:px-6 text-center font-bold text-cyan-400 text-sm sm:text-base whitespace-nowrap">600 TL</td>
+            </tr>
+
+            <!-- 5. A0 Asetat Film -->
+            <tr class="hover:bg-slate-800/40 transition">
+              <td class="py-4 px-4 sm:px-6 font-bold text-white flex items-center gap-2.5 whitespace-nowrap">
+                <i data-lucide="film" class="w-4 h-4 text-cyan-400 flex-shrink-0"></i>
+                <span>A0 Asetat Film</span>
+              </td>
+              <td class="py-4 px-4 sm:px-6 text-slate-300 font-medium whitespace-nowrap">841 × 1189 mm</td>
+              <td class="py-4 px-4 sm:px-6">
+                <div class="flex items-center justify-between gap-4">
+                  <span class="text-slate-400">4.0 Dmax Yüksek Densite</span>
+                  <span class="text-slate-400 text-xs font-semibold">Tek Renk</span>
+                </div>
+              </td>
+              <td class="py-4 px-4 sm:px-6 text-center font-bold text-cyan-400 text-sm sm:text-base whitespace-nowrap">260 TL</td>
+              <td class="py-4 px-4 sm:px-6 text-center font-bold text-cyan-400 text-sm sm:text-base whitespace-nowrap">900 TL</td>
+            </tr>
+
+            <!-- 6. CMYK -->
+            <tr class="hover:bg-slate-800/40 transition">
+              <td class="py-4 px-4 sm:px-6 font-bold text-white flex items-center gap-2.5 whitespace-nowrap">
+                <i data-lucide="file-code" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <span>CMYK</span>
+              </td>
+              <td class="py-4 px-4 sm:px-6 text-slate-300 font-medium whitespace-nowrap">Kanal Başına</td>
+              <td class="py-4 px-4 sm:px-6">
+                <div class="flex items-center justify-between gap-4">
+                  <span class="text-slate-400">Katmanlı PSD / TIFF Ayrımı</span>
+                  <span class="text-slate-400 text-xs font-semibold">Tek Renk</span>
+                </div>
+              </td>
+              <td class="py-4 px-4 sm:px-6 text-center font-bold text-cyan-400 text-sm sm:text-base whitespace-nowrap">200 TL</td>
+              <td class="py-4 px-4 sm:px-6 text-center font-bold text-emerald-400 text-xs sm:text-sm whitespace-nowrap">Ölçüye göre</td>
+            </tr>
+
+            <!-- 7. Simüle Proses Set Ayrımı -->
+            <tr class="hover:bg-slate-800/40 transition">
+              <td class="py-4 px-4 sm:px-6 font-bold text-white flex items-center gap-2.5 whitespace-nowrap">
+                <i data-lucide="palette" class="w-4 h-4 text-rose-400 flex-shrink-0"></i>
+                <span>Simüle Proses Set Ayrımı</span>
+              </td>
+              <td class="py-4 px-4 sm:px-6 text-slate-300 font-medium whitespace-nowrap">Komple Desen</td>
+              <td class="py-4 px-4 sm:px-6">
+                <div class="flex items-center justify-between gap-4">
+                  <span class="text-slate-400">Eliptik Tram Açılı (6–9 Renk)</span>
+                  <span class="text-slate-400 text-xs font-semibold">Tek Renk</span>
+                </div>
+              </td>
+              <td class="py-4 px-4 sm:px-6 text-center font-bold text-cyan-400 text-sm sm:text-base whitespace-nowrap">300 TL</td>
+              <td class="py-4 px-4 sm:px-6 text-center font-bold text-rose-400 text-xs sm:text-sm whitespace-nowrap">Ölçüye göre</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </section>
@@ -743,8 +860,8 @@
       <div class="flex justify-between border-t border-slate-800 pt-2 items-center">
         <span class="text-slate-400">Hizmet Türü:</span>
         <select id="modalServiceType" onchange="updateModalPrice()" class="bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-1 text-xs font-bold text-white focus:outline-hidden focus:border-cyan-400">
-          <option value="digital">Dijital Renk Ayrımı Dosyası (500 TL)</option>
-          <option value="film">Renk Ayrımı + Pozlama Filmi Çıktısı (850 TL)</option>
+          <option value="digital">Dijital Renk Ayrımı Dosyası (260 TL / renk)</option>
+          <option value="film">Renk Ayrımı + A3 Pozlama Filmi Çıktısı (600 TL)</option>
         </select>
       </div>
     </div>
@@ -804,24 +921,31 @@ function handleDoneFileSelect(e) {
 function calcEmpPrice() {
   const colorVal = document.querySelector('input[name="colorCount"]:checked')?.value || '1';
   const deliverVal = document.querySelector('input[name="deliverType"]:checked')?.value || 'digital';
+  const filmSizeBox = document.getElementById('filmSizeSelectorBox');
   
-  let basePrice = 450;
-  let breakdown = 'Tek Renk Dijital Renk Ayrımı';
+  let basePrice = 260;
+  let breakdown = 'Tek Renk Dijital Çalışma (260 TL)';
 
   if (colorVal === '2-3') {
-    basePrice = 650;
-    breakdown = '2 - 3 Renk Spot Kanal Ayrımı';
+    basePrice = 520; // 2 renk x 260 TL
+    breakdown = '2 - 3 Renk Spot Çalışma (520 TL)';
   } else if (colorVal === '4-6') {
-    basePrice = 950;
-    breakdown = '4 - 6 Renk Çok Kanallı Tram Ayrımı';
+    basePrice = 1040; // 4 renk x 260 TL
+    breakdown = '4 - 6 Renk Çok Kanallı Çalışma (1.040 TL)';
   } else if (colorVal === 'cmyk') {
-    basePrice = 1250;
-    breakdown = 'CMYK / Simüle Proses Renk Ayrımı';
+    basePrice = 800; // 4 kanal x 200 TL (Kanal Başına 200 TL)
+    breakdown = 'CMYK Renk Ayrımı (4 Kanal × 200 TL = 800 TL)';
   }
 
   if (deliverVal === 'film_cargo') {
-    basePrice += 350;
-    breakdown += ' + Pozlamaya Hazır Film Çıktısı (Kargo Dahil)';
+    if (filmSizeBox) filmSizeBox.classList.remove('hidden');
+    const filmRates = { 'A4': 240, 'A3': 340, 'A2': 400, 'A1': 600, 'A0': 900 };
+    const filmSize = document.querySelector('input[name="filmSizeOption"]:checked')?.value || 'A3';
+    const filmPrice = filmRates[filmSize] || 340;
+    basePrice += filmPrice;
+    breakdown += ` + Pozlamaya Hazır ${filmSize} Film (${filmPrice} TL)`;
+  } else {
+    if (filmSizeBox) filmSizeBox.classList.add('hidden');
   }
 
   const priceEl = document.getElementById('calculatedEmpPrice');
@@ -832,7 +956,8 @@ function calcEmpPrice() {
   // Update Whatsapp Link
   const waBtn = document.getElementById('empWhatsappBtn');
   if (waBtn) {
-    const msg = `Merhaba emprime.site, Emprime Renk Ayrımı ve Film Çıktısı hizmeti için fiyat almak istiyorum.\n\n🎨 *Renk:* ${colorVal}\n📦 *Teslimat:* ${deliverVal === 'digital' ? 'Dijital Dosya' : 'Film Çıktısı (Kargo)'}\n💰 *Tutar:* ${basePrice} TL`;
+    const fSizeStr = deliverVal === 'film_cargo' ? ` (${document.querySelector('input[name="filmSizeOption"]:checked')?.value || 'A3'})` : '';
+    const msg = `Merhaba emprime.site, Emprime Renk Ayrımı ve Film Çıktısı hizmeti için fiyat almak istiyorum.\n\n🎨 *Renk:* ${colorVal}\n📦 *Teslimat:* ${deliverVal === 'digital' ? 'Dijital Dosya' : 'Film Çıktısı' + fSizeStr}\n💰 *Tutar:* ${basePrice} TL`;
     waBtn.href = `https://wa.me/908503000000?text=${encodeURIComponent(msg)}`;
   }
 }
@@ -840,18 +965,23 @@ function calcEmpPrice() {
 function submitCustomDoneOrder() {
   const colorVal = document.querySelector('input[name="colorCount"]:checked')?.value || '1';
   const deliverVal = document.querySelector('input[name="deliverType"]:checked')?.value || 'digital';
-  const price = parseInt(document.getElementById('calculatedEmpPrice').textContent.replace(/[^0-9]/g, '')) || 450;
+  const filmSize = document.querySelector('input[name="filmSizeOption"]:checked')?.value || 'A3';
+  const price = parseInt(document.getElementById('calculatedEmpPrice').textContent.replace(/[^0-9]/g, '')) || 260;
 
   // Selected Techniques
   const techChecked = Array.from(document.querySelectorAll('input[name="techOption"]:checked')).map(el => el.value);
   const techStr = techChecked.length > 0 ? techChecked.join(', ') : 'Standart Serigrafi';
+
+  const serviceTitle = deliverVal === 'digital' 
+    ? 'Dijital Dosya' 
+    : `Pozlama Filmi (${filmSize})`;
 
   CartEngine.addItem({
     product_id: 'EMP-CUSTOM-' + Date.now().toString().slice(-4),
     product_title: 'Özel Done Renk Ayrımı (' + colorVal + ' Renk' + (selectedDoneFileName ? ' - ' + selectedDoneFileName : '') + ')',
     product_code: 'EMP-CUSTOM',
     technique: techStr,
-    service_type: deliverVal === 'digital' ? 'Dijital Dosya' : 'Pozlama Filmi (Kargo)',
+    service_type: serviceTitle,
     unit_price: price,
     quantity: 1,
     image: '/static/images/emprime/emp_pat_floral_wm.jpg'
@@ -879,14 +1009,14 @@ function updateModalPrice() {
 
 function confirmEmpCatalogOrder() {
   const sType = document.getElementById('modalServiceType').value;
-  const price = sType === 'digital' ? 500 : 850;
+  const price = sType === 'digital' ? 260 : 600;
 
   CartEngine.addItem({
     product_id: activeModalData.code,
     product_title: activeModalData.title,
     product_code: activeModalData.code,
     technique: activeModalData.tech,
-    service_type: sType === 'digital' ? 'Dijital Dosya' : 'Pozlama Filmi Çıktısı',
+    service_type: sType === 'digital' ? 'Dijital Dosya' : 'Pozlama Filmi Çıktısı (A3)',
     unit_price: price,
     quantity: 1,
     image: '/static/images/emprime/emp_pat_floral_wm.jpg'
@@ -897,7 +1027,7 @@ function confirmEmpCatalogOrder() {
 
 function sendEmpWhatsapp() {
   const sType = document.getElementById('modalServiceType').value;
-  const price = sType === 'digital' ? 500 : 850;
+  const price = sType === 'digital' ? 260 : 600;
   const msg = `Merhaba emprime.site, "${activeModalData.title}" (${activeModalData.code}) emprime deseni için ${sType === 'digital' ? 'Dijital Renk Ayrımı' : 'Renk Ayrımı ve Film Çıktısı'} (${price} TL) siparişi vermek istiyorum.`;
   window.open(`https://wa.me/908503000000?text=${encodeURIComponent(msg)}`, '_blank');
 }
