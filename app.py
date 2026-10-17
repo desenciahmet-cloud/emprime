@@ -63,6 +63,16 @@ async def get_sw():
         "Cache-Control": "public, max-age=0, must-revalidate"
     })
 
+@app.get("/robots.txt", include_in_schema=False)
+async def get_robots():
+    robots_path = os.path.join(BASE_DIR, "static", "robots.txt")
+    return FileResponse(robots_path, media_type="text/plain", headers={"Cache-Control": "public, max-age=86400"})
+
+@app.get("/sitemap.xml", include_in_schema=False)
+async def get_sitemap():
+    sitemap_path = os.path.join(BASE_DIR, "static", "sitemap.xml")
+    return FileResponse(sitemap_path, media_type="application/xml", headers={"Cache-Control": "public, max-age=3600"})
+
 # --- Web Pages ---
 
 @app.get("/", response_class=HTMLResponse)
