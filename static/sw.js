@@ -1,5 +1,5 @@
-// emprime.site Service Worker v2
-const CACHE_NAME = 'emprime-v2';
+// emprime.site Service Worker v3
+const CACHE_NAME = 'emprime-v3';
 const STATIC_ASSETS = [
   '/',
   '/favicon.ico?v=20261016',
@@ -14,7 +14,16 @@ const STATIC_ASSETS = [
   '/static/img/logo.png',
   '/static/js/app.js',
   '/static/css/custom.css',
-  '/manifest.json'
+  '/manifest.json',
+  '/static/images/emprime/emp_model_floral_black.jpg',
+  '/static/images/emprime/emp_model_floral_white.jpg',
+  '/static/images/emprime/emp_pat_floral_wm.jpg',
+  '/static/images/emprime/emp_model_ocean_black.jpg',
+  '/static/images/emprime/emp_pat_ocean_wm.jpg',
+  '/static/images/emprime/emp_model_ethnic_brown.jpg',
+  '/static/images/emprime/emp_pat_ethnic_wm.jpg',
+  '/static/images/emprime/emp_model_magnolia_black.jpg',
+  '/static/images/emprime/emp_pat_magnolia_wm.jpg'
 ];
 
 self.addEventListener('install', (event) => {
@@ -56,7 +65,7 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Static assets: cache first, revalidate in background
+  // Static assets & images: cache first, revalidate in background, cache on fetch
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
       if (cachedResponse) {
@@ -67,7 +76,13 @@ self.addEventListener('fetch', (event) => {
         }).catch(() => {});
         return cachedResponse;
       }
-      return fetch(event.request);
+      return fetch(event.request).then((networkResponse) => {
+        if (networkResponse && networkResponse.status === 200) {
+          const clone = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+        }
+        return networkResponse;
+      });
     })
   );
 });
